@@ -1,0 +1,838 @@
+body {
+    overflow: initial;
+}
+
+.formatorPage, .formator-container {
+    display: flex;
+}
+
+.formator-container {
+    flex: 1;
+}
+
+.formator__sidebar {
+    min-width: 56px;
+    position: relative;
+    display: flex;
+}
+
+.formator__sidebar--container {
+    top: 0px;
+    left: 0;
+    width: 56px;
+    z-index: 92;
+    background: #182026;
+    height: 100vh;
+    position: sticky;
+    transition: width 0.5s ease-in, background 0.5s ease-in;
+    padding-top: 15px;
+}
+
+.formator__sidebar:hover .formator__sidebar--container {
+    width: 320px;
+    background: rgb(73, 1, 53);
+}
+
+.formator__sidebar--container:hover .formator__sidebar--title{
+    opacity: 1;
+}
+
+.formator__sidebar--list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+.formator__sidebar--link {
+    text-decoration: none !important;
+}
+
+.formator__sidebar--link:hover .formator__sidebar--item {
+    background: rgba(255, 255, 255, 0.781);
+    border-right: 4px solid #2c1fa5;
+}
+
+.formator__sidebar--item.open {
+    background: rgba(255, 255, 255, 0.781);
+    border-right: 4px solid #2c1fa5;
+}
+
+.formator__sidebar--item.open .formator__sidebar--icon, .formator__sidebar--item.open .formator__sidebar--title{
+    transform: scale(1.1);
+    color: #2c1fa5;
+}
+
+.formator__sidebar--link:hover .formator__sidebar--icon, .formator__sidebar--link:hover .formator__sidebar--title{
+    transform: scale(1.1);
+    color: #2c1fa5;
+}
+
+.formator__sidebar--item {
+    display: inline-flex;
+    overflow: hidden;
+    width: 100%;
+    padding: 12px 12px;
+    vertical-align: middle;
+    height: 58px;
+}
+
+.formator__sidebar--icon {
+    font-size: 23px;
+    color: #fff;
+}
+
+.formator__sidebar--title {
+    margin-left: 30px;
+    padding-top: 8px;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 17px;
+    letter-spacing: 1.2px;
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.7s ease-in-out;
+}
+
+/***********************************
+        Main
+***********************************/
+
+.formator-main, .formator-stat-main {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 20px;
+}
+
+.createCourse__main  {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.createCourse__main div.row {
+    margin: 0 !important;
+    width: 100%;
+}
+
+.formator-content {
+    padding-top: 30px;
+}
+
+div.text-welcome h3{
+    text-align: center;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 1.8rem !important;
+    margin-bottom: 30px;
+}
+
+div.text-welcome p {
+    font-family: 'Merriweather', sans-serif;
+    letter-spacing: 1.1px;
+    line-height: 30px;
+    opacity: 0.89999;
+}
+
+div.how-work-title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: 'Merriweather', sans-serif;
+    font-size: 1.2rem;
+    color: #ce0520;
+}
+
+.formator-content .row {
+    box-shadow: 0 0 4px 0 rgba(0,0,0,0.4);
+    margin-bottom: 30px;
+    border-radius: 0;
+    background: #f2f2f2;
+    border: 1px solid rgba(0,0,0,0.2);
+}
+
+h4.title-step {
+    font-family: 'Exo 2', sans-serif;
+    letter-spacing: 0.9px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    padding-left: 30px;
+    margin-left: 10px;
+}
+
+.formator-content .row p {
+    font-family: 'Exo 2', sans-serif;
+    letter-spacing: 0.9px;
+}
+
+.step-text-content-left {
+    position: relative !important;
+    margin-top: 3.5rem;
+    padding-left: 25px;
+}
+
+.step-text-content-right {
+    position: relative !important;
+    margin-top: 3.5rem;
+    padding-right: 25px;
+}
+
+.step-number {
+    position: absolute;
+    top: 0rem;
+    border-radius: 50%;
+    border: 1px solid rgba(173, 157, 157, 0.945);
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    align-items: center;
+    font-size: 18px;
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 600;
+    color: rgb(49, 50, 53);
+}
+
+.step-image {
+    padding: 0 !important;
+}
+
+.illustration img {
+    width: 100%;
+}
+
+.formator__course--btn-container span {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 16px;
+}
+
+.formator__course--btn-container a, .text-welcome a {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'Exo 2', sans-serif;
+    letter-spacing: 1.1px;
+    color: #182026;
+    font-weight: 600;
+    background: #fff;
+}
+
+/***********************************
+    page créer un cours
+***********************************/
+.sidenav-option {
+    background: #f5f3f3;
+    box-shadow: inset 0 1px 0px 0 rgba(0,0,0,0.2)
+}
+
+.sidenav-option-content {
+    margin-top: 55px;
+    padding: 0 15px;
+    margin-bottom: 55px;
+}
+
+@media only screen and (max-width: 1020px) {
+    .sidenav-option-content {
+        padding: 0 !important;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+}
+
+.sidenav-option-content ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sidenav-item {
+    padding: 5px 10px
+}
+
+.sidenav-link {
+    text-decoration: none !important;
+    color: rgba(0,0,0,0.8);
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 2px 20px 5px 28px;
+    position: relative;
+}
+
+.sidenav-link:before {
+    content: "";
+    box-sizing: border-box;
+    font-size: 22px;
+    width: .6em;
+    height: .3em;
+    border-left-style: solid;
+    border-bottom-style: solid;
+    border-color: rgba(68, 66, 68, 0.945);
+    position: absolute;
+    /* top: 0em; */
+    left: 0em;
+    z-index: 5;
+    transform-origin: left top;
+    transform: rotate(-45deg) skew(10deg);
+    bottom: 5px
+}
+
+.sidenav-link.active:before {
+    border-color: #2c1fa5;
+}
+
+/*******************************
+    Formulaire description
+*******************************/
+
+.creatCourse-container {
+    /*background: #fff;*/
+    padding: 0 !important;
+    border-left: 1px solid rgb(218, 216, 216);
+}
+
+.creatCourse-title {
+    padding: 30px 30px 15px;
+    border-bottom: 1px solid rgb(218, 216, 216);
+}
+
+.creatCourse-title h2 {
+    font-family: 'Merriweather', sans-serif;
+    font-size: 1.8rem !important;
+    letter-spacing: 0.5px;
+}
+
+.creatCourse-content {
+    padding: 30px;
+}
+
+div.form-group.creatCourse-form label {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+
+div.form-group.creatCourse-form .form-control.creatCourse-input {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    height: 42px;
+    border-radius: 2px;
+}
+
+div.form-group.creatCourse-form .form-control.creatCourse-textarea {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    height: 125px;
+    border-radius: 2px;
+}
+
+div.form-group.creatCourse-form .form-control.creatCourse-input:focus, div.form-group.creatCourse-form .form-control.creatCourse-textarea:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.creatCourse-btn-next-step {
+    text-align: center;
+}
+
+.btn-hover-display-info {
+    position: relative;
+    background: none ;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;   
+}
+
+.btn-hover-display-info > i.far.fa-question-circle {
+    color: #495057;
+}
+
+.window-info-prerequi {
+    position: absolute;
+    background: #f8f6f6;
+    width: 550px;
+    padding: 8px;
+    font-family: 'Exo 2';
+    font-size: 13px;
+    text-align: left;
+    border: 1px solid #cacaca;
+    top: -54px;
+    left: 15px;
+    box-shadow: 0 0 4px 0 rgba(15, 15, 15, 0.3);
+    border-radius: 3px;
+    display: none;
+}
+
+@media screen and (max-width: 780px) {
+    .window-info-prerequi {
+        width: 320px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .window-info-prerequi {
+        width: 250px !important;
+        top: 23px;
+        left: -88px;
+    }
+}
+
+.btn-hover-display-info:hover .window-info-prerequi {
+    display: block;
+}
+
+.tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+  
+.tag-container .tag {
+    height: 35px;
+    margin: 5px;
+    padding: 5px 6px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    background: #eee;
+    display: flex;
+    align-items: center;
+    color: #333;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 1px 1px #fff;
+    cursor: default;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 17px;
+}
+  
+.tag i {
+    font-size: 16px;
+    color: #666;
+    margin-left: 10px;
+    cursor: pointer;
+}  
+
+.creatCourse-btn-next-step a {
+    font-family: 'Exo 2', sans-serif;
+    letter-spacing: 0.9px;
+    font-weight: 500;
+}
+
+/*******************************
+    page ccImage.html
+*******************************/
+
+.creatCourse-text-alert {
+    margin: 1rem !important;
+    padding: 10px !important;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    background: #f2f2f2;
+    font-weight: 600
+}
+
+.file-field {
+    margin-top: 15px;
+}
+
+.file-fieldContent {
+    width: 370px;
+    /* display: flex; */
+    text-align: center;
+}
+
+.file-field-image, .file-field-video {
+    margin-bottom: 20px;
+}
+
+.file-field-image img, .file-field-video img{
+    border: 1px solid #b8b6b6;
+    border-radius: 4px;
+}
+
+.file-fieldContent .btn.btn-primary{
+    position: relative;
+    font-family: 'Exo 2', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+#fileImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 30;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.file-field-video {
+    position: relative;
+}
+
+.file-field-video span {
+    position: absolute;
+    z-index: 5;
+    color: white;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+}
+
+/*********************************
+        page ccProgram.html
+*********************************/
+
+.ccPart {
+    background: #f2f2f2;
+    border: 1px solid #cac;
+}
+
+.ccTitle-part {
+    padding: 16px 25px;
+    border-bottom: 1px solid #cac;
+}
+
+.ccTitle-part-content {
+    display: flex;
+}
+
+#ccEditPart {
+    display: none;
+}
+
+.ccTitle-part h3 {
+    font-family: 'Merriweather', sans-serif;
+    font-size: 1.4rem !important;
+    margin-bottom: 0;
+}
+
+.ccPart .btnAddContent {
+    padding-left: 50px;
+    margin-bottom: 30px;
+}
+
+.ccChapitre-list {
+    list-style: none;
+    padding: 16px 25px;
+    margin: 0;
+}
+
+.ccChapitre-item {
+    padding: 16px;
+    background: #fff;
+    border: 1px solid #cac;
+    position: relative
+}
+
+.ccChapitre-content {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 17px;
+}
+
+.ccChapitre-video-list {
+    list-style: none;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.ccChapitre-item .btnAddContent {
+    margin: 0 !important;
+    padding: 0 !important;
+    position: absolute;
+    top: 15px;
+    right: 12px;
+}
+
+#addContenu {
+    background: none;
+    border: none;
+}
+
+#addContenu:focus {
+    outline: none;
+}
+
+#addContenu span {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 18px !important;
+    opacity: 0.8;
+}
+
+#ccEditChapitre {
+    display: none;
+    padding: 15px;
+}
+
+.ccEdit-chapitre, .ccDelete-chapitre, .ccEdit-part, .ccDelete-part {
+    visibility: hidden;
+    opacity: 0.8999;
+}
+
+.ccChapitre-content:hover .ccEdit-chapitre, 
+.ccChapitre-content:hover .ccDelete-chapitre, 
+.ccTitle-part:hover .ccEdit-part, .ccTitle-part:hover .ccDelete-part{
+    visibility: visible;
+}
+
+.ccEdit-chapitre:hover, .ccDelete-chapitre:hover, .ccEdit-part:hover, .ccDelete-part:hover {
+    cursor: pointer;
+    opacity: 1;
+    color: #2c1fa5;
+}
+
+.ccChapitre-add-write.btn.btn-outline-primary, .ccChapitre-add-video.btn.btn-outline-info {
+    position: relative;
+    font-size: 25px !important;
+    border-radius: 0 !important;
+    width: 50px;
+    height: 50px;
+}
+
+.ccChapitre-add-write:hover, .ccChapitre-add-video:hover {
+    color: #121213;
+    border: 1px solid #cac;
+}
+
+.ccChapitre-add-write:hover .add-write-info, .ccChapitre-add-video:hover .add-video-info {
+    display: block;
+}
+
+.add-write-info, .add-video-info {
+    position: absolute;
+    width: 220px;
+    padding: 5px;
+    background: #f2f2f2;
+    box-shadow: 0 0 4px 0 rgba(0,0,0,0.4);
+    border-radius: 2px;
+    top: -49px;
+    left: 48px;
+    font-size: 13px !important;
+    font-family: 'Exo 2', sans-serif;
+    letter-spacing: 0.5px;
+    display: none;
+    color: black !important;
+}
+
+.ccChapitre-item .collapse {
+    margin-top: 18px;
+}
+
+.ccCollapse-btn {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.ccChapitre-video-div-one, .ccChapitre-write-form {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 17px;
+    position: relative;
+    box-shadow: 0 0 4px 0 rgba(132, 84, 228, 0.274);
+    border: 1px solid #cac;
+    padding: 20px;
+    background: #fff;
+    border-radius: 0;
+    display: none;
+}
+
+.closeInputVideo {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    font-size: 22px;
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 600;
+    opacity: 0.999;
+    cursor: pointer;
+}
+
+.ccChapitre-video-btnContent {
+    position: relative;
+    font-family: 'Exo 2', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.ccChapitre-video-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    bottom: 0;
+    opacity: 0;
+}
+
+.ccChapitre-write-form .form-group {
+    margin-bottom: 0 !important;
+}
+
+.ccChapitre-video-uploaded-content {
+    position: relative;
+    font-size: 17px;
+}
+
+.ccChapitre-video-uploaded-content span {
+    opacity: 0.8;
+}
+
+.ccChapitre-video-uploaded-name {
+    font-family: 'Exo 2', sans-serif;
+    letter-spacing: 0.5px;
+    opacity: 1 !important;
+    color: #3628b6;
+}
+
+.ccEdit-video-uploaded {
+    cursor: pointer;
+}
+
+.ccDelete-video-uploaded {
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+}
+
+.ccEdit-video-uploaded:hover,  .ccDelete-video-uploaded:hover{
+    color: #3628b6;
+    opacity: 1;
+}
+
+#ccEditVideo {
+    display: none;
+}
+
+.btnAddContent button {
+    font-family: 'Exo 2', sans-serif;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+}
+
+.btnAddContent span {
+    font-family: 'Exo 2', sans-serif;
+    letter-spacing: 0.5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btnAddContent span:hover {
+    opacity: 1 !important;
+}
+
+.btnAddContent #addPart:hover {
+    color: #2c1fa5;
+    opacity: 1 !important;
+}
+
+.btnAddContent span i {
+    opacity: 0.7;
+}
+
+/*
+.ccChapitre-video-uploader {
+    margin-top: 20px;
+    display: none;
+}
+
+.ccChapitre-progress-file-name, .ccChapitre-video-uploader-text {
+    position: relative;
+    margin-bottom: 10px;
+    font-size: 17px;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.ccChapitre-video-uploader-bar .progress {
+    margin: 10px 20px;
+    background: #fff !important;
+    border: 1px solid #cac;
+    border-radius: 2px;
+    height: 20px;
+    width: 735px;
+}
+
+.stopProgress {
+    position: absolute;
+    top: 29px;
+    right: 12px;
+    font-family: 'Exo 2';
+    font-size: 20px;
+    font-weight: 600;
+}
+
+*/
+
+
+/******************************
+    ccQcm.html
+******************************/
+
+.ccSource-input-file .btn.btn-primary {
+    position: relative;
+    font-family: 'Exo 2', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.ccQuiz h4, .ccQcm h4 {
+    margin-bottom: 1.5rem !important;
+    font-family: 'Merriweather';
+    font-weight: 500;
+    letter-spacing: 0.5px !important;
+    font-size: 1.6rem;
+    opacity: 0.89;
+}
+
+/***********************************
+        ccProfil.html
+***********************************/
+
+.ccform-image {
+    position: relative;
+    width: 200px;
+    margin-bottom: 30px;
+    left: 50px;
+}
+
+.ccImg-profil {
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
+    border: 2px solid #c4c4c4;
+}
+
+.ccBrowser-button {
+    position: absolute;
+    left: 0px;
+    z-index: 2;
+    background-image: linear-gradient(to bottom, #e3e8f000, #b6cef600, #8ab3fb5e, #5b97fead, #007bffdc);
+    border-radius: 100%;
+    transition: .3s ease;
+    height: 200px;
+    width: 200px;
+    top: -2px;
+    opacity: 0;
+    cursor: pointer
+}
+
+.ccBrowser-button:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.ccBrowser-button i {
+    color: #fff;
+    font-size: 30px;
+    transform: translate(10px, 150px);
+}
+
+.ccBrowser-button input {
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    transform: translate(0px, -32px);
+    opacity: 0;
+    cursor: pointer;
+}

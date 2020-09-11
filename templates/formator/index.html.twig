@@ -1,0 +1,97 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Espace formateur{% endblock %}
+
+{% block style %}<link rel="stylesheet" type="text/css" href="/css/formateur.css">{% endblock %}
+
+{% block body %}
+<div class="formatorPage">
+    <div class="formator-container">
+        <div class="formator-main">
+            <div class="container">
+                <div class="formator-content">
+                    <div class="text-welcome">
+                        <h3>Bienvenue sur l'espace formateur de codemy</h3>
+                        <p>Codemy vous permet de partager vos connaissances avec des centaines de milliers
+                            d'étudiant ou aprennant. Notre missions est de rendre l'education plus accessible
+                            et Codemy vous offre la chance de pouvoir contribuer a ce bienfait.
+                        </p>
+                    </div>
+                    <div class="how-work-title">
+                        <span>Comment ça fonctionne ?</span>
+                    </div>
+                    <div class="row justify-content-between">
+                        <div class="col-12 col-sm-6">
+                            <div class="step-text-content-left">
+                                <span class="step-number">1</span>
+                                <h4 class="title-step">Choisir un sujet</h4>
+                                <p>Les sujets les plus interresant sont ceux qui attirent le plus d'étudiant.
+                                    prenez donc le temps pour bien choisir sur quel domaine ou sujet se portera
+                                    votre formation
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-5 step-image">
+                            <div class="illustration">
+                                <img src="https://placeimg.com/450/250/people" alt="image d'illustration">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-between">
+                        <div class="col-6 col-sm-5 step-image">
+                            <div class="illustration">
+                                <img src="https://placeimg.com/450/250/tech" alt="image d'illustration">
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="step-text-content-right">
+                                <span class="step-number">2</span>
+                                <h4 class="title-step">Créer votre cours</h4>
+                                <p>La creation du cours est sans doute la plus importante des étapes. c'est pour cela
+                                    que codemy vous donnera tout le temps necessaire afin de créer un cours
+                                    captivant. des ressources seront mise à votre disposition pour vous faciliter la création
+                                    de votre formation
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-between">
+                        <div class="col-12 col-sm-6">
+                            <div class="step-text-content-left">
+                                <span class="step-number">3</span>
+                                <h4 class="title-step">CoDemy s'occupe de tout</h4>
+                                <p>Une fois que vous aurez fini la création de votre, nous prenons le relais. Codemy se charge
+                                    de mettre votre cours en ligne.rassurez vous, Nous nous occupons aussi de la publicité de votre cours
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-5 step-image">
+                            <div class="illustration">
+                                <img src="https://placeimg.com/450/250/arch" alt="image d'illustration">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="formator__course--btn-container text-center pt-2">
+                        <span>Etes vous pret a commencer la création de votre cours ?</span>
+                        <br>
+                        {% if app.user %}
+                        <a href="{{path('formator_create_course_description')}}" class="btn btn-outline-danger">Créer un cours</a>
+                        {% else %}
+                        <a href="#" class="btn btn-outline-danger" id="loginBeforeCreateCourse">Créer un cours</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block javascripts %}
+<script>
+    $(function(){
+        $('#loginBeforeCreateCourse').click(function(e){
+            e.preventDefault();
+        });
+    });  
+</script>
+{% endblock %}

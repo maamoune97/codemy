@@ -1,0 +1,153 @@
+
+.dashboard__page--banner {
+    height: 10rem;
+    background: #515763;
+    padding: 40px;
+}
+
+.dashboard__banner--title {
+    padding: 25px;
+}
+
+.dashboard__banner--title h4 {
+    font-size: 2rem;
+    color: #fff;
+    font-family: 'Merriweather', sans-serif;
+    margin-left: 50px;
+}
+
+/************************/
+
+.dashboard__content.row {
+    margin: 0 !important;
+    padding: 20px;
+}
+
+div.all-course {
+    padding: 8px 16px;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 1.5rem;
+    margin-left: 30px;
+    opacity: 0.89999;
+    border-bottom: 2px solid gray;
+    margin-bottom: 25px;
+}
+
+ul.dahsboard__listing--course {
+    list-style: none;
+    padding-left: 10px !important;
+}
+
+.dashboard__list--item {
+    margin-bottom: 35px;
+}
+
+.dashboard__course--container.row {
+    margin: 0;
+    box-shadow: 0 0 4px 0px rgba(0,0,0,0.5);
+    border-radius: 7px;
+}
+
+.dashboard__course--container.row div {
+    padding: 0;
+}
+
+.dashboard__image--content img {
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    box-shadow: 0 0 2px 0 rgba(0,0,0,0.2);
+}
+
+/***********************************/
+
+.progress-and-title-content {
+    padding: 45px 25px !important;
+    height: 100%;
+}
+
+.dashboard__course--title {
+    font-family: 'Merriweather', sans-serif;
+    letter-spacing: 1px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    opacity: 0.899;
+    margin-bottom: 10px;
+}
+
+.dashboard__course--progress {
+    position: relative;
+}
+
+.progress {
+    width: 95%;
+    height: 7px !important;
+    background-color: #bdbfc2 !important;
+    border-radius: 0.30rem !important;
+}
+
+.progress-bar {
+    background-color: rgb(54, 93, 233) !important;
+}
+
+.progress-number {
+    position: absolute;
+    top: -9px;
+    right: -16px;
+    font-size: 14px;
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 600;
+    opacity: 0.7;
+}
+
+.dashboard__course--btn {
+    transform: translate(0px, 54px);
+    text-align: center;
+}
+
+.dash__course--btn-content {
+    font-family: 'Exo 2', sans-serif;
+    letter-spacing: 1px;
+}
+
+/****************************/
+
+form.dashboard__search--form {
+    transform: translate(0, 30px) !important;
+}
+
+label.dashboard__label {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 18px;
+}
+
+input.dashboard__input--search {
+    height: 36px !important;
+    padding-right: 37px;
+    font-family: 'Livvic', sans-serif;
+}
+
+form.dashboard__search--form button {
+    position: relative;
+    top: -36px;
+    height: 35px;
+    width: 35px;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    float: right;
+    align-items: center;
+    justify-content: center;
+}
+
+form.dashboard__search--form button:focus {
+    outline: none;
+}
+
+form.dashboard__search--form button span {
+    position: absolute;
+    top: 4px;
+    right: 8px;
+}
+
+

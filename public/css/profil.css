@@ -1,0 +1,147 @@
+/********************************
+        Banner
+********************************/
+
+.profil-page-banner {
+    height: 12rem;
+    background: #515763;
+    padding: 40px;
+}
+
+.profil-page-banner div {
+    padding: 40px;
+}
+
+.profil-page-banner h4 {
+    font-size: 2rem;
+    color: #fff;
+    font-family: 'Merriweather', sans-serif;
+    margin-left: 50px;
+}
+
+/*********************************
+        Photo de profil
+**********************************/
+
+.image-profil-page .row {
+    margin: 0 !important;
+}
+
+.image-prfoil-page .col-8.col-md-4 {
+    position: relative;
+}
+
+.img-profil {
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    top: -140px;
+    left: -84px;
+    border-radius: 100%;
+    border: 2px solid #c4c4c4;
+}
+
+.browser-button {
+    position: absolute;
+    left: -84px;
+    z-index: 2;
+    background-image: linear-gradient(to bottom, #e3e8f000, #b6cef600, #8ab3fb5e, #5b97fead, #007bffdc);    border-radius: 100%;
+    transition: .3s ease;
+    height: 200px;
+    width: 200px;
+    top: -140px;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.browser-button:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.browser-button i {
+    color: #fff;
+    font-size: 30px;
+    transform: translate(90px, 149px);
+}
+
+.browser-button input {
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    transform: translate(0px, -32px);
+    opacity: 0;
+    cursor: pointer;
+}
+
+/**********************************
+        A propos
+**********************************/
+
+div.apropo.card.border-gray {
+    margin-top: 80px !important;
+    border-radius: 0 !important;
+}
+
+.apropo .card-header {
+    padding: 13px;
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 600;
+    font-size: 1.3rem;
+    background: #007bff;
+    border-radius: 0 !important;
+    color: #fff;
+}
+
+.apropo .card-header span {
+    margin-left: 10px;
+}
+
+#viewProfil .card-body {
+    padding: 0 1.25rem !important;
+}
+
+ul.list-about-me {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.about-me-item {
+    padding: 16px;
+    border-bottom: 1px solid #ebeff2;
+}
+
+div.about-me-content {
+    display: flex;
+}
+
+div.info-about-me {
+    width: 40%;
+    font-size: 1rem;
+    font-family: 'Merriweather', sans-serif;
+    opacity: 0.7;
+}
+
+div.value-about {
+    width: 60%;
+    padding-left: 8px;
+    font-family: 'Merriweather', sans-serif;
+    color: black;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.btn-modification button {
+    font-family: 'Exo 2', sans-serif;
+    letter-spacing: 1px;
+    text-decoration: none !important;
+}
+
+#editProfil {
+    display: none;
+}
+
+div#editProfil.col-md-9 form.settingsForm {
+    padding-top: 0 !important;
+}

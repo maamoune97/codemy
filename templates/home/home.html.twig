@@ -1,0 +1,226 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="main-container">
+    <section class="section1">
+      <div class="banner">
+        <div class="banner-border">
+          <div class="text-banner">
+            <div class="headline-title">
+              <h1>Venez apprendre avec Codemy</h1>
+            </div>
+            <div class="headline-text">
+              <p><strong>Codemy vous offres des formations gratuites que vous pouvez apprendre a tout moment et à votre
+                  rythme.</strong></p>
+            </div>
+            <div class="search-div">
+              <form id="search-container" class="form-group">
+                <input type="text" name="" id="search-bar" class="form-control" placeholder="Cherchez un cours...">
+                <a href="#" type="" class="fas fa-search" id="icon-search"></a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section2">
+      <div class="section-content">
+        <div class="homepage-block">
+          <div class="section-headline" data-title="how-does-it-work">
+            <div class="section2-title text-center row">
+              <h2 id="question" class="col-xs-12 col-12 col-md-12">Pourquoi choisir Codemy?</h2>
+            </div>
+          </div>
+          <div class="codemy-information row">
+            <div class="codemy-logo-container col-12 col-sm-12 col-md-12 col-lg-4">
+              <div id="logo-codemy">
+                <div class="text-center">
+                  <img src="/media/images/ressources/logo.png" alt="logo" class="logo-section2">
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-8" id="info">
+              <p><strong>Codemy</strong> est la premiere plateforme comorienne qui
+                fournit des formations gratuite 100% en ligne.</p>
+              <p>Afin de pouvoir de pouvoir contribuer au développement de notre pays, Codemy s'est donner pour mission
+                de rendre un peu plus accessible l'éducation via l'internet.</p>
+              <p>Avec CoDemy plusieurs types de formation s'offre à vous dans plusiers domaines notament les
+                mathématiques, l'informatique, les langues étrangères, les sciences physiques et juridiques ou encore
+                l'ingenierie.</p>
+              <p>Si vous etes étudiants, professionnels ou tout simplement curieux, Codemy est fait pour vous aider à
+                enrichir vos connaissance dans le domaine que vous souhaitez.</p>
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section3">
+      <div class="container text-center">
+        <div class="section-header text-center">
+          <div class="header-content">
+            <h3>Premiere fois?</h3>
+          </div>
+          <div class="body-content">
+            <p>C'est votre premiere fois sur CoDemy et vous ne savez pas quelle formation choisir?
+              Répondez à nos question pour obtenir des recommandations de cours.</p>
+          </div>
+          <div class="btn-header">
+            <a href="#" class="button" style="text-decoration: none;">Commencez</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section4">
+      <div class="container">
+        <h3 class="text-center" id="pop">Les cours les plus récents</h3>
+        <div class="course text-center">
+          {% for course in lastCourses %}
+            <div id="course-div">
+            <a href="{{path('course_show', {'slugCategory': course.categorySlug, 'slugSubcategory': course.subCategorySlug, 'slugCourse': course.slug})}}" class="course-link">
+                <div class="course-image">
+                <img src="/media/images/courses/defaults.jpeg" id="course-image" alt="{{course.title}} Cover Image">
+                <span class="statut" id="physic">{{course.category}}</span>
+                </div>
+                <div class="card-body">
+                <h2 class="course-title">{{course.title}}</h2>
+                <p style="color: #A6A6A6; margin-bottom:0;">Par <em style="color: #007bff; font-weight:500;">{{course.firstName}} {{course.lastName}}</em> | Durée: 60min</p>
+                </div>
+            </a>
+            </div>
+          {% endfor %}
+        </div>
+        <br>
+        <h3 class="text-center" id="pop">Les cours les plus populaires</h3>
+        <div class="course text-center">
+          <div id="course-div">
+            <a href="#" class="course-link">
+              <div class="course-image">
+                <img src="/media/images/courses/defaults.jpeg" id="course-image">
+                <span class="statut" id="ing">Ingenierie</span>
+              </div>
+              <div class="card-body">
+                <h2 class="course-title">Formation Sketchup</h2>
+                <p style="color: #A6A6A6; margin-bottom:0;">Par <em style="color: #007bff; font-weight:500;">Samna
+                    SAIDALI</em> | Durée: 120min</p>
+              </div>
+            </a>
+          </div>
+          <div id="course-div">
+            <a href="#" class="course-link">
+              <div class="course-image">
+                <img src="/media/images/courses/defaults.jpeg" id="course-image">
+                <span class="statut" id="ing">Ingenierie</span>
+              </div>
+              <div class="card-body">
+                <h2 class="course-title">Robotique avec arduino</h2>
+                <p style="color: #A6A6A6; margin-bottom:0;">Par <em style="color: #007bff; font-weight:500;">Abdou
+                    ZIDINI</em> | Durée: 4min</p>
+              </div>
+            </a>
+          </div>
+          <div id="course-div">
+            <a href="#" class="course-link">
+              <div class="course-image">
+                <img src="/media/images/courses/defaults.jpeg" id="course-image">
+                <span class="statut" id="dev">Informatique</span>
+              </div>
+              <div class="card-body">
+                <h2 class="course-title">Programmation android</h2>
+                <p style="color: #A6A6A6; margin-bottom:0;">Par <em style="color: #007bff; font-weight:500;">Dalil
+                    IBRAHIM</em> | Durée: 40min</p>
+              </div>
+            </a>
+          </div>
+          <div id="course-div">
+            <a href="#" class="course-link">
+              <div class="course-image">
+                <img src="/media/images/courses/defaults.jpeg" id="course-image">
+                <span class="statut" id="physic">Science physique</span>
+              </div>
+              <div class="card-body">
+                <h2 class="course-title">Transfert Thermique</h2>
+                <p style="color: #A6A6A6; margin-bottom:0;">Par <em style="color: #007bff; font-weight:500;">Mala
+                    DABOCH</em> | Durée: 25min</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section5">
+      <div class="container">
+        <div class="section5-title">
+          <h3>Témoignage de nos étudiants</h3>
+        </div>
+        <div class="wrapper">
+          <div class="box">
+            <div class="box-image">
+              <div>
+                <img src="https://via.placeholder.com/100x100" class="photo">
+              </div>
+              <div class="box-header">
+                <h5>Saidat Houmadi</h5>
+                <p>Facultés des Sciences de Patsy</p>
+              </div>
+            </div>
+            <div class="box-body">
+              <div class="text-body">
+                <p>
+                  "L'apprentissage sur CoDemy est vraiment satisfaisant. J'ai pu réaliser mon reve
+                  de devenir developpeur web j'envisage d'utiliser le
+                  plateforme sur le long terme"
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-image">
+              <div>
+                <img src="https://via.placeholder.com/100x100" class="photo">
+              </div>
+              <div class="box-header">
+                <h5>Saidat Houmadi</h5>
+                <p>Facultés des Sciences de Patsy</p>
+              </div>
+            </div>
+            <div class="box-body">
+              <div class="text-body">
+                <p>
+                  "L'apprentissage sur CoDemy est vraiment satisfaisant. J'ai pu réaliser mon reve
+                  de devenir developpeur web j'envisage d'utiliser le
+                  plateforme sur le long terme"
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-image">
+              <div>
+                <img src="https://via.placeholder.com/100x100" class="photo">
+              </div>
+              <div class="box-header">
+                <h5>Saidat Houmadi</h5>
+                <p>Facultés des Sciences de Patsy</p>
+              </div>
+            </div>
+            <div class="box-body">
+              <div class="text-body">
+                <p>
+                  "L'apprentissage sur CoDemy est vraiment satisfaisant. J'ai pu réaliser mon reve
+                  de devenir developpeur web j'envisage d'utiliser le
+                  plateforme sur le long terme"
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center box-button">
+          <a href="#" class="box-link" style="text-decoration: none;">
+            Lire tous les témoignages
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+{% endblock %}

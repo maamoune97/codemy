@@ -1,0 +1,209 @@
+{% extends 'base.html.twig' %}
+{% block style %}
+<link rel="stylesheet" type="text/css" href="/css/dashboard.css">{% endblock %}
+
+{% block title %}Tableau de bord{% endblock %}
+
+{% block body %}
+<div class="dashboard-page" role="main">
+    <div class="dashboard__page--banner">
+        <div class="dashboard__banner--title">
+            <h4>Tableau de bord</h4>
+        </div>
+    </div>
+    <div class="dashboard__conainter">
+        <div class="dashboard__content row">
+            <div class="dashboard__content--course col-md-9 order-md-1 col-12 order-2">
+                <div class="all-course">
+                    <span>Tous les cours</span>
+                </div>
+                <ul class="dahsboard__listing--course">
+                    <li class="dashboard__list--item">
+                        <div class="dashboard__course--container row">
+                            <div class="dashboard__course--image col-md-3 col-12">
+                                <div class="dashboard__image--content">
+                                    <img src="https://placeimg.com/150/100/tech">
+                                </div>
+                            </div>
+                            <div class="dashboard__progress-and-title col-md-6 col-12">
+                                <div class="progress-and-title-content">
+                                    <div class="dashboard__course--title">
+                                        <span>Apprendre la mécanique des fluides</span>
+                                    </div>
+                                    <div class="dashboard__course--progress">
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-success" style="width: 25%;">
+                                            </div>
+                                        </div>
+                                        <div class="progress-number">25%</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dashboard__course--btn col-md-3 col-12">
+                                <div>
+                                    <a href="#" class="btn btn-primary dash__course--btn-content">Continuer le
+                                        cours</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dashboard__list--item">
+                        <div class="dashboard__course--container row">
+                            <div class="dashboard__course--image col-md-3 col-12">
+                                <div class="dashboard__image--content">
+                                    <img src="https://placeimg.com/150/100/people">
+                                </div>
+                            </div>
+                            <div class="dashboard__progress-and-title col-md-6 col-12">
+                                <div class="progress-and-title-content">
+                                    <div class="dashboard__course--title">
+                                        <span>Apprendre le PHP</span>
+                                    </div>
+                                    <div class="dashboard__course--progress">
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-success" style="width: 0%;">
+                                            </div>
+                                        </div>
+                                        <div class="progress-number">0%</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dashboard__course--btn col-md-3 col-12">
+                                <div>
+                                    <a href="#" class="btn btn-primary dash__course--btn-content">Continuer le
+                                        cours</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dashboard__list--item">
+                        <div class="dashboard__course--container row">
+                            <div class="dashboard__course--image col-md-3 col-12">
+                                <div class="dashboard__image--content">
+                                    <img src="https://placeimg.com/150/100/animals">
+                                </div>
+                            </div>
+                            <div class="dashboard__progress-and-title col-md-6 col-12">
+                                <div class="progress-and-title-content">
+                                    <div class="dashboard__course--title">
+                                        <span>Phenomene de transfert thermique</span>
+                                    </div>
+                                    <div class="dashboard__course--progress">
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-success" style="width: 62%;">
+                                            </div>
+                                        </div>
+                                        <div class="progress-number">62%</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dashboard__course--btn col-md-3 col-12">
+                                <div>
+                                    <a href="#" class="btn btn-primary dash__course--btn-content">Continuer le
+                                        cours</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dashboard__list--item">
+                        <div class="dashboard__course--container row">
+                            <div class="dashboard__course--image col-md-3 col-12">
+                                <div class="dashboard__image--content">
+                                    <img src="https://placeimg.com/150/100/arch">
+                                </div>
+                            </div>
+                            <div class="dashboard__progress-and-title col-md-6 col-12">
+                                <div class="progress-and-title-content">
+                                    <div class="dashboard__course--title">
+                                        <span>Apprendre la mécanique des fluides</span>
+                                    </div>
+                                    <div class="dashboard__course--progress">
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-success" style="width: 100%;">
+                                            </div>
+                                        </div>
+                                        <div class="progress-number">100%</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dashboard__course--btn col-md-3 col-12">
+                                <div>
+                                    <a href="#" class="btn btn-primary dash__course--btn-content">Continuer le
+                                        cours</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dashboard__list--item">
+                        <div class="dashboard__course--container row">
+                            <div class="dashboard__course--image col-md-3 col-12">
+                                <div class="dashboard__image--content">
+                                    <img src="https://placeimg.com/150/100/tech">
+                                </div>
+                            </div>
+                            <div class="dashboard__progress-and-title col-md-6 col-12">
+                                <div class="progress-and-title-content">
+                                    <div class="dashboard__course--title">
+                                        <span>Programmation android</span>
+                                    </div>
+                                    <div class="dashboard__course--progress">
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-success" style="width: 25%;">
+                                            </div>
+                                        </div>
+                                        <div class="progress-number">25%</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dashboard__course--btn col-md-3 col-12">
+                                <div>
+                                    <a href="#" class="btn btn-primary dash__course--btn-content">Continuer le
+                                        cours</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dashboard__list--item">
+                        <div class="dashboard__course--container row">
+                            <div class="dashboard__course--image col-md-3 col-12">
+                                <div class="dashboard__image--content">
+                                    <img src="https://placeimg.com/150/100/tech">
+                                </div>
+                            </div>
+                            <div class="dashboard__progress-and-title col-md-6 col-12">
+                                <div class="progress-and-title-content">
+                                    <div class="dashboard__course--title">
+                                        <span>Arduino pour la robotique</span>
+                                    </div>
+                                    <div class="dashboard__course--progress">
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-success" style="width: 50%;">
+                                            </div>
+                                        </div>
+                                        <div class="progress-number">50%</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dashboard__course--btn col-md-3 col-12">
+                                <div>
+                                    <a href="#" class="btn btn-primary dash__course--btn-content">Continuer le
+                                        cours</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="dashboard__search--bar col-md-3 order-md-2 col-12 order-1">
+                <form action="" class="dashboard__search--form form-group">
+                    <label for="search" class="dashboard__label">Recherchez parmi mes cours</label>
+                    <input type="text" id="search" class="dashboard__input--search form-control">
+                    <button type="submit" class="dashboard__search--button btn btn-primary">
+                        <span><i class="fas fa-search"></i></span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

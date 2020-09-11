@@ -1,0 +1,33 @@
+<div class="col-lg-3 sidenav-option">
+    <div class="sidenav-option-content">
+        <ul class="sidenav-list">
+            <li class="sidenav-item">
+                {% if course is not defined %}
+                    <a href="{{path('formator_create_course_description', {'slug': ''})}}" class="sidenav-link active">Description</a>
+                {% else %}
+                    <a href="{{path('formator_create_course_description', {'slug': course.slug})}}" class="sidenav-link active">Description</a>
+                {% endif %}
+            </li>
+            <li class="sidenav-item">
+                {% if course is not defined %}
+                    <span class="sidenav-link nav-link disabled" >Image et video</span>
+                {% else %}
+                    <a href="{{path('formator_create_course_media', {'slug': course.slug})}}" class="sidenav-link">Image et video
+                    </a>
+                {% endif %}
+            </li>
+            <li class="sidenav-item">
+                <a href="ccProgram.html" class="sidenav-link">Programme</a>
+            </li>
+            <li class="sidenav-item">
+                <a href="ccQcm.html" class="sidenav-link">Quiz ou QCM</a>
+            </li>
+            <li class="sidenav-item">
+                <a href="ccSource.html" class="sidenav-link">Fichier source</a>
+            </li>
+            <li class="sidenav-item">
+                <a href="#" class="sidenav-link">Message</a>
+            </li>
+        </ul>
+    </div>
+</div>

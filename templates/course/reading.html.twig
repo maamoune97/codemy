@@ -1,0 +1,292 @@
+{% extends "base.html.twig" %}
+
+{% block style %}<link rel="stylesheet" type="text/css" href="/css/chapter.css">{% endblock %}
+
+{% block body %}
+<!--   banner  -->
+<div class="videoViewer__course--banner text-center">
+    <div class="banner__navigation--div">
+        <a href="pageCourse.html" class="banner__navigation--link">
+            <div class="banner__navigation--icon">
+                <span><i class="fas fa-home"></i></span>
+            </div>
+        </a>
+    </div>
+    <div class="banner__navigation--div">
+        <a href="#" class="banner__navigation--link">
+            <span>Cours</span>
+        </a>
+    </div>
+    <div class="banner__navigation--div">
+        <a href="#" class="banner__navigation--link">
+            <span>Accedez au forum</span>
+        </a>
+    </div>
+    <div class="banner__navigation--div">
+        <a href="#" class="banner__navigation--link">
+            <span>Ressources pedagogique</span>
+        </a>
+    </div>
+    <div class="banner__navigation--div">
+        <a href="#" class="banner__navigation--link">
+            <span>FAQ</span>
+        </a>
+    </div>
+    <div class="banner__navigation--div">
+        <a href="pageCourse.html" class="banner__navigation--link">
+            <div class="banner__navigation--icon">
+                <span><i class="fas fa-trophy"></i></span>
+            </div>
+        </a>
+    </div>
+</div>
+<!--  Corps  -->
+<div class="courseView-body">
+    <!--  Sidebar  -->
+    <div class="sidebar">
+        <div class="sidebar-content">
+            <div id="scrollHeader" class="sidebar-header" style="top: 117px;">
+                <span>Programme du cours</span>
+                <span class="btn-close--sidebar">&times;</span>
+            </div>
+            <div id="scrollBody" class="sidebar-body" style="top: 177px;">
+                <div id="accordion">
+                    <!-- debut des parts -->
+                    {% for part in course.parts %}
+                        <div class="card">
+                            <div class="card-header" id="heading{{part.id}}">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" data-toggle="collapse"
+                                        data-target="#collapse-{{part.id}}" aria-expanded="true"
+                                        aria-controls="collapse-{{part.id}}">
+                                        <span>{{part.title}}</span>
+                                        <span class="caret-icon"><i class="fas fa-angle-down"></i></span>
+                                        <div class="subtitle">
+                                            <span>5 videos de cours</span> | <span>7 exercices</span>
+                                        </div>
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapse-{{part.id}}" class="collapse show"
+                                aria-labelledby="heading{{part.id}}" data-parent="#accordion">
+                                <div class="card-body">
+                                    <!-- debut des chapitres -->
+                                    {% for chapter in part.chapters %}
+                                        <a href="{{path('course_reading', {'slugCourse': course.slug, 'slug': chapter.slug})}}" class="card-body--link"
+                                            id="chap-{{chapter.id}}">
+                                            <div class="card-link--div">
+                                                <span>{{chapter.title}}</span><br>
+                                                <span class="icon-video"><i class="fas fa-video"></i></span>
+                                                <span class="duration--video">25 min</span>
+                                            </div>
+                                        </a>
+                                    {% endfor %}
+                                    <!-- Fin des chapitres -->
+
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                    <!-- Fin des parts -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  Contenu  -->
+    <div class="videoViewer__section--col">
+        <!--  Video  -->
+        <div class="videoViewer__container">
+            <div class="videoViewer__content">
+                <div class="videoViewer__height--limited">
+                    <div class="videoDiv__player h-100 w-100">
+                        <div class="player__video--container h-100 w-100">
+                            <div class="player__video--content">
+                                <video class="videoCourse" controls preload="auto" autoplay>
+                                    <source src="/media/video/courses/1/video_test.mp4" type="video/mp4">
+                                    Sorry, your browser doesn't support embedded videos.
+                                </video>
+                            </div>
+                        </div>
+                        <div class="next__previous--Content">
+                            <a href="#" class="next__previous--btn"
+                                title="chapitre precedent">
+                                <span><i class="fas fa-chevron-left"></i></span>
+                            </a>
+                            <a href="#" class="next__previous--btn"
+                                title="chapitre suivant">
+                                <span><i class="fas fa-chevron-right"></i></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  Partage / j'aime  -->
+        <div class="btnVideo-viewer">
+            <div class="btn-like--dislike">
+                <div class="btn-likeDislike--content">
+                    <button id="btnLike" class="allbtn">
+                        <span class="mr-1"><i class="toggle toggle-iconLike far fa-thumbs-up"></i></span>
+                        <span>J'aime</span>
+                    </button>
+                </div>
+                <div class="btn-likeDislike--content">
+                    <button id="btnDislike" class="allbtn">
+                        <span class="mr-1"><i class="toggle toggle-iconDislike far fa-thumbs-down"></i></span>
+                        <span>je n'aime pas</span>
+                    </button>
+                </div>
+            </div>
+            <div class="btn-share--save">
+                <div class="btn-saveShare--content">
+                    <button id="btnShare" class="allbtn">
+                        <span class="mr-1"><i class=" fas fa-share-alt"></i></span>
+                        <span>Paratger</span>
+                    </button>
+                </div>
+                <div class="btn-saveShare--content">
+                    <button id="btnSave" class="allbtn">
+                        <span class="mr-1"><i class="toggle toggle-iconSave far fa-bookmark"></i></span>
+                        <span>Enregister</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!--  Partie cours ecrit  -->
+        <div id="course-loader">
+            <div class="loader "></div>
+            <div id="current-course" class="courseReader--container">
+                <div class="courseReader-part--title">
+                    <span id="chapter-title">{{currentChapter.title}}</span>
+                </div>
+                <div id="chapter-content" class="courseReader-part-content">
+                    {{currentChapter.content | raw}}
+                </div>
+            </div>
+        </div>
+        <!--  next / precedent  -->
+        <div class="link__next--previous">
+            {% if not lastChapter %}
+                <span class="next__previous--link nav-link disabled">Précedent</span>
+                {% else %}
+                <a href="{{path('course_reading', {'slugCourse': lastChapter.part.course.slug, 'slug': lastChapter.slug})}}" class="next__previous--link">Précedent</a>
+            {% endif %}
+            <div class="divider"></div>
+            {% if not nextChapter %}
+                <span class="next__previous--link nav-link disabled">Suivant</span>
+            {% else %}
+                <a href="{{path('course_reading', {'slugCourse': nextChapter.part.course.slug, 'slug': nextChapter.slug})}}" class="next__previous--link">Suivant</a>
+            {% endif %}
+        </div>
+        <!--  footer -->
+        <div class="footer-icon row justify-content-between">
+            <div class="col-12 order-2 col-sm-12 order-sm-2 col-md-4 order-md-1 col-lg-4 text-center">
+                <span><img src="#"></span>
+                <span>&copy; Codemy 2018-2019</span>
+            </div>
+            <div class="col-12 order-1 col-sm-12 order-sm-1 col-md-7 order-md-2 col-lg-7">
+                <div class="condition__footer text-center">
+                    <a href="#" class="mx-2">Mention Légale</a>
+                    <a href="#" class="mx-2">Conditions d'utilisation</a>
+                    <a href="#" class="mx-2">Politique de Confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}{% endblock %}
+
+{% block javascripts %}
+<script>
+      // alert($(window).width());
+
+      $(window).on("scroll", function (e) {
+        var headerHeight = $('header').height(); // hauter du header
+        var bannerHeight = $('.videoViewer__course--banner').height() + 33; // hauteur banner
+        var height = headerHeight + bannerHeight; // hauter total (header + banner)
+        var sideHeaderHeight = $('#scrollHeader').height() + 32; // hauteur sidebar header
+        var bodyDefault = height + sideHeaderHeight; // hauteur totale (header + banner + sidebar header)
+        // recuperation de la position du scroll
+        var scrollPos = $(window).scrollTop();
+        if (scrollPos > 0 && scrollPos <= height) {
+          $("#scrollHeader").css({
+            'top': (height - scrollPos) + 'px'
+          });
+          $("#scrollBody").css({
+            'top': (bodyDefault - scrollPos) + 'px'
+          });
+        } else if (scrollPos > height) {
+          $("#scrollHeader").css({
+            'top': 0 + 'px'
+          });
+          $("#scrollBody").css({
+            'top': 60 + 'px'
+          });
+        } else if (scrollPos == 0) {
+          $("#scrollHeader").css({
+            'top': height + 'px'
+          });
+          $("#scrollBody").css({
+            'top': bodyDefault + 'px'
+          });
+        }
+      });
+
+      $("#btnLike").click(function () {
+        $('.toggle-iconLike').toggleClass("far fas");
+      });
+
+      $("#btnDislike").click(function () {
+        $('.toggle-iconDislike').toggleClass("far fas");
+      });
+
+      $("#btnSave").click(function () {
+        $('.toggle-iconSave').toggleClass("far fas");
+      });
+
+      //1349px correspond a 379px
+
+      $(".btn-close--sidebar").click(function () {
+        $('.sidebar').css('display', 'none');
+        $('.button-open-programme').css('display', 'table');
+        $('.videoViewer__section--col').css({'width': 100 + '%'});
+      });
+
+      $('.button-open-programme').click(function(){
+        $('.sidebar').css('display', 'block');
+        $('.button-open-programme').css('display', 'none');
+        $('.videoViewer__section--col').css({'width': 72 + '%'});
+        if($(window).width() < 920 && $(window).width() > 668 ) {
+          $('.sidebar').css('display', 'block');
+          $('.button-open-programme').css('display', 'none');
+          $('.videoViewer__section--col').css({'width': 100 + '%'});
+          $('#scrollHeader').css({'width': 35 + '%'});
+          $('#scrollBody').css({'width': 35 + '%'});
+        } else if($(window).width() <= 668 && $(window).width() > 489 ){
+          $('.sidebar').css('display', 'block');
+          $('.button-open-programme').css('display', 'none');
+          $('.videoViewer__section--col').css({'width': 100 + '%'});
+          $('#scrollHeader').css({'width': 48 + '%'});
+          $('#scrollBody').css({'width': 48 + '%'});
+        }
+        else if($(window).width() <= 489 && $(window).width() > 360){
+          $('.sidebar').css('display', 'block');
+          $('.button-open-programme').css('display', 'none');
+          $('.videoViewer__section--col').css({'width': 100 + '%'});
+          $('#scrollHeader').css({'width': 65 + '%'});
+          $('#scrollBody').css({'width': 65 + '%'});
+        } else if($(window).width() <= 360){
+          $('.sidebar').css('display', 'block');
+          $('.button-open-programme').css('display', 'none');
+          $('.videoViewer__section--col').css({'width': 100 + '%'});
+          $('#scrollHeader').css({'width': 74 + '%'});
+          $('#scrollBody').css({'width': 74 + '%'});
+        }
+      });
+
+</script>
+{% endblock %}

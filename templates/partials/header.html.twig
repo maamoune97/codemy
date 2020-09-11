@@ -1,0 +1,309 @@
+<header>
+    <!-- mobile navbar -->
+    <nav class="navbar nav-toggler" style="padding-bottom: 0; padding-top: 0;">
+      <div class="btn-burger">
+        <button class="toggle btn__resp ml-auto" id="btnOffcanvas">
+          <span class="fas fa-bars"></span>
+        </button>
+      </div>
+      <div class="logo__small-screen">
+        <a class="navbar-brand mr-auto" id="logo" href="{{path('home')}}">
+          <img src="/media/images/ressources/logo.png" alt="logo" class="header_logo">
+        </a>
+      </div>
+      <div class="header__resp-right">
+        <div class="resp-search">
+          <button type="button" class="btn__resp" id="btnStat">
+            <span class="fas fa-search"></span>
+          </button>
+          <div class="resp-searchdiv">
+            <div class="resp-searchbar">
+              <form id="resp-searchform" class="form-group mb-0">
+                <input type="text" name="" id="resp-searchinput" class="form-control"
+                  placeholder="Cherchez un cours...">
+                <a href="#" type="" class="fas fa-search" id="resp-iconsearch"></a>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="resp__logreg">
+          <button type="button" class="btn__resp" id="btnUser">
+            <span class="fas fa-user"></span>
+          </button>
+          <div class=" logreg__div">
+            <div class="row ">
+              <div class="col-12 col-sm-6 tRight">
+                <button class="btn btn-outline-primary" id="btnLogin">Connexion</button>
+              </div>
+              <div class="col-12 col-sm-6 tLeft">
+                <button class="btn btn-primary" id="btnRegister">S'inscrire gratuitement</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!--menu offcanvas -->
+    <div class="menu-mobile">
+      <div id="overlay"></div>
+      <div id="menu__offcanvas">
+        <nav class="mobile__menu--offcanvas">
+          <h2><i class="fas fa-reorder"></i>Toutes les categories</h2>
+          <ul class="menu__offcanvas--category">
+            <li class="menu__ofacanvas--list level--one">
+              <a href="#">Informatique</a>
+              <ul class="submenu__offcanvas--list level--two">
+                <li><a href="#">Developpement web</a></li>
+                <li><a href="#">Developpement mobile</a></li>
+                <li><a href="#">Developpement de logicel</a></li>
+                <li><a href="#">Algorithmique</a></li>
+                <li><a href="#">Base de données</a></li>
+                <li><a href="#">Réseaux</a></li>
+                <li><a href="#">Intelligence artificiel</a></li>
+                <li><a href="#">Machine learning</a></li>
+              </ul>
+            </li>
+            <li class="menu__ofacanvas--list level--one">
+              <a href="#">Science Physique</a>
+              <ul class="submenu__offcanvas--list level--two">
+                <li><a href="#">Mécanique</a></li>
+                <li><a href="#">Electronique</a></li>
+                <li><a href="#">Physique des Particule</a></li>
+                <li><a href="#">Physique des matériaux</a></li>
+                <li><a href="#">Optique</a></li>
+                <li><a href="#">Electromagnetisme</a></li>
+                <li><a href="#">Thermodynamique</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="padding-bottom: 0; padding-top: 0;">
+      <a class="navbar-brand" id="logo" href="{{path('home')}}" style="margin: 0;">
+        <img src="/media/images/ressources/logo.png" alt="logo" class="header_logo">
+      </a>
+      <div class="collapse navbar-collapse justify-content-between" id="navigationmenu">
+        <ul class="nav navbar-nav mr-auto" height="40" style="margin-right: 0;">
+          <li class="nav-item ">
+            <div class="dropdown">
+              <a class="nav-link dropdown-toggle btn btn-primary" href="#" id="explore" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false" style="outline: none;">Catalogues</a>
+              <ul class="dropdown-menu" aria-labelledby="explore">
+                <li class="h-100">
+                  <ul aria-label="Explorer" class="drop__level_one">
+                    {% for category in globalRender.courseCatalog %}
+                      <li class="drop-link">
+                        <a class="link__level--one" href="{{category.slug}}" role="button" aria-expanded="false">
+                          <span>{{category.title}}</span>
+                          <span class="drop__icon-next fas fa-chevron-right"></span>
+                        </a>
+                        <div class="catalog-menu">
+                          <ul class="submenu__level-two">
+                            {% for subCategory in category.subCategories %}
+                              <li class="submenu__list">
+                                <a href="{{subCategory.slug}}" role="button" aria-expanded="false">
+                                  <span class="submenu__item">{{subCategory.title}}</span>
+                                </a>
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        </div>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="instructor nav-item hidden-md">
+            <a href="{{path('formator_index')}}" class="nav-link instructorLink btn">
+              <span class="instructorDiv">
+                Espace formateur
+              </span>
+            </a>
+          </li>
+        </ul>
+        <ul id="searchbar_ul" class="nav navbar-nav mx-auto">
+          <li class="nav-item">
+            <div class="container h-100">
+              <div class="d-flex justify-content-center h-100">
+                <div class="searchbar">
+                  <input class="search_input" type="text" name="" placeholder="Recherche...">
+                  <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+        {% if not app.user %}
+          <ul id="log_reg" class="nav navabr-nav ml-auto" height="40">
+            <li class="nav-item">
+              <button class="nav-link btn btn-outline-primary" id="login">Connexion</button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link btn btn-primary " id="register">S'inscrire gratuitement</button>
+            </li>
+          </ul>
+        {% else %}
+          <div id="connected" class="nav navabr-nav" height="40">
+            <div class="avatarName nav-item">
+              <span class="nav-link">{{app.user.fullName}}</span>
+            </div>
+            <div class="avatarDiv dropdown nav-item">
+              <button class="avatar dropbtn" type="button" id="BtnAv">
+                <img src="/media/images/users/1/profile.jpg" alt="photo de profil">
+                <span class="notif">8</span>
+              </button>
+              <div class="dropdown-content">
+                <a class="dropdown-link" href="{{path('user_dashbord')}}">
+                  <span class="fasIcone"><i class="fas fa-home"></i></span>
+                  <span class="dropdown-link__text">Tableau de bord</span>
+                </a>
+                <a class="dropdown-link" href="{{path('user_profile')}}">
+                  <span class="fasIcone"><i class="fas fa-user"></i></span>
+                  <span class="dropdown-link__text">Mon profil</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-link" href="#">
+                  <span class="fasIcone"><i class="fas fa-envelope"></i></span>
+                  <span class="dropdown-link__text">Messages</span>
+                </a>
+                <a class="dropdown-link" href="{{path('user_settings_email')}}">
+                  <span class="fasIcone"><i class="fas fa-cog"></i></span>
+                  <span class="dropdown-link__text">Paramètres</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-link" href="{{path('account_logout')}}">
+                  <span class="fasIcone"><i class="fas fa-power-off"></i></span>
+                  <span class="dropdown-link__text">Déconnexion</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+
+      </div>
+    </nav>
+
+    <!-- Div pour la section login -->
+    <div id="loginModal" class="loginOverlay">
+      <div class="loginDiv">
+        <span class="closeLogin">&times;</span>
+        <form class="loginForm" method="POST" id="loginFormJS">
+          <span class="loginForm__title">
+            Connexion
+          </span>
+          <div id="con_error" class="alert alert-danger" role="alert">
+            <p>Votre nom d'utilisateur ou votre mot de passe est incorrect</p>
+          </div>
+          <div class="input-validate">
+            <span class="labelInput">Adresse email</span>
+            <input class="inputArea" type="text" name="_username" id="username" placeholder="Entrez votre adresse email">
+            <span class="inputIcone usernameInput"></span>
+          </div>
+          <div class="input-validate">
+            <span class="labelInput">Mot de Passe</span>
+            <input class="inputArea" type="password" name="_password" id="password" placeholder="Entrez votre mot de passe">
+            <span class="inputIcone passwordInput"></span>
+          </div>
+          <div class="forgetText text-center">
+            <a href="#" class="forgetLink">
+              <span>Mot de passe oublié?</span>
+            </a>
+          </div>
+          <div class="buttonDiv text-center">
+            <div class="buttonLogin">
+              <button type="button" id="login-submit" class="btnContent">
+                Connexion
+              </button>
+            </div>
+          </div>
+          <div class="textBtm text-right">
+            <span class="notSubscribe">
+              Pas encore inscrit?
+            </span>
+            <a href="#" class="subscribeLink ml-1">
+              inscrivez-vous
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Div pour la section register -->
+    <div id="registerModal" class="registerOverlay">
+      <div class="registerDiv">
+        <span class="closeRegister">&times;</span>
+        <form class="registerForm" id="registerFormJS">
+          <span class="registerForm__title">
+            Inscription
+          </span>
+          <div class="input-validate">
+            <span class="labelInput">Nom</span>
+            <input class="inputArea" type="text" name="last Name" placeholder="Entrez votre nom ">
+            <span class="inputIcone usernameInput"></span>
+          </div>
+          <div class="alert alert-danger">
+            <p>Votre nom est invalide</p>
+          </div>
+          <div class="input-validate">
+            <span class="labelInput">Prenom</span>
+            <input class="inputArea" type="text" name="First Named" placeholder="Entrez votre prenom">
+            <span class="inputIcone usernameInput"></span>
+          </div>
+          <div class="alert alert-danger">
+            <p>Votre prenom est invalide</p>
+          </div>
+          <div class="input-validate">
+            <span class="labelInput">Adresse e-mail</span>
+            <input class="inputArea" type="text" name="mail" placeholder="Entrez votre Adresse e-mail">
+            <span class="inputIcone mailInput"></span>
+          </div>
+          <div class="alert alert-danger">
+            <p>L'adresse e-mail saisie n'est pas valide</p>
+          </div>
+          <div class="input-validate">
+            <span class="labelInput">Mot de Passe</span>
+            <input class="inputArea" type="password" name="password" placeholder="Entrez votre mot de passe">
+            <span class="inputIcone passwordInput"></span>
+          </div>
+          <div class="alert alert-danger">
+            <p>Votre mot de passe est invalide</p>
+          </div>
+          <div class="input-validate">
+            <span class="labelInput">Confirmez votre mot de passe</span>
+            <input class="inputArea" type="password" name="password Confirm" placeholder="Confimer votre mot de passe">
+            <span class="inputIcone passwordInput"></span>
+          </div>
+          <div class="alert alert-danger">
+            <p>Les mots de passe de correspond pas</p>
+          </div>
+          <div class="registerCheck pt-3">
+            <span>En acceptant de vous inscrire vous acceptez aussi les</span>
+            <a href="#">Condition d'utilisation</a> et
+            <a href="#">La politique de confidentialité</a>.
+          </div>
+          <div class="buttonDiv text-center">
+            <div class="buttonRegister">
+              <button class="btnContent">
+                S'inscrire
+              </button>
+            </div>
+          </div>
+          <div class="textBtm text-right">
+            <span class="notSubscribe">
+              Deja inscrits?
+            </span>
+            <a href="#" class="subscribeLink ml-1">
+              connectez-vous
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </header>

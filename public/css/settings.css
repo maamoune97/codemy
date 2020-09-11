@@ -1,0 +1,631 @@
+/*******************
+********************
+   slide Nav
+********************
+*******************/
+
+.slideNav {
+    background-image: linear-gradient(to right, #243bda, #365de3, #537be8, #7498e9, #98b3e7);
+}
+
+.settings {
+	display: block;
+}
+
+.navigationSettings {
+    line-height: 40px;
+}
+
+.navigation-list--slideNav {
+    list-style: none;
+    overflow-x: auto;
+    white-space: nowrap;
+    margin-top: 25px;
+}
+
+.navigation-item--slideNav {
+    display: inline-block;
+    text-decoration: none;
+}
+
+ul.navigation-list--slideNav li a {
+	/*background: none;
+	outline: none;*/
+	font-size: 18px;
+	font-family: 'Livvic', sans-serif;
+	font-weight: 600;
+    line-height: 1.42857143;
+    border: none;
+    border-bottom: 4px solid transparent;
+    border-radius: 0;
+    color: #edf0f5;
+    transition: border .5s ease;
+    padding: 0;
+    margin: 8px;
+    text-decoration: none;
+}
+
+ul.navigation-list--slideNav li a.active, ul.navigation-list--slideNav li a:hover {
+	border-bottom: 4px solid #eddfe0;
+}
+
+
+/*******************
+********************
+  Parametre de
+  compte
+********************
+*******************/
+
+div.container.text-center {
+    padding-bottom: 50px;
+    /*border-bottom: 1px solid #ebeff2;*/
+}
+
+.settingsForm {
+	padding-top: 40px;
+}
+
+.card {
+	position: relative;
+	box-sizing: border-box;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+	transition: .3s ease;
+	-webkit-transition: .3s ease;
+}
+
+.card-heading {
+    font-size: 18px;
+    font-family: 'Merriweather', sans-serif;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+.card .input-container {
+	position: relative;
+	padding-top: 20px;
+}
+
+.input-container>input, .input-container>select {
+	outline: none;
+	z-index: 1;
+	position: relative;
+	background: none;
+	width: 100%;
+	height: 35px;
+	color: #212121;
+	font-size: 16px;
+	letter-spacing: 1.9px;
+	font-weight: 500;
+	font-family: 'Exo 2', sans-serif;
+	padding-left: 20px;
+	border: 0;
+}
+
+.input-container input:focus ~ label, .input-container select:focus ~ label {
+	color: #2c1fa5;
+	-webkit-transform: translateY(-10px) scale(.8);
+			transform: translateY(-10px) scale(.8);
+}
+
+.input-container input:focus ~ .bar:before,
+.input-container input:focus ~ .bar:after, .input-container select:focus ~ .bar:after,
+.input-container select:focus ~ .bar:before {
+	width: 50%;
+}
+
+.input-container input:valid ~ label, .input-container select:valid ~ label {
+	color: #2c1fa5;
+	-webkit-transform: translateY(-10px) scale(.8);
+			transform: translateY(-10px) scale(.8);
+}
+
+.input-container input:invalid ~ label, .input-container select:invalid ~ label {
+	color: #2c1fa5;
+	-webkit-transform: translateY(-10px) scale(.8);
+			transform: translateY(-10px) scale(.8);
+}
+
+.input-container label {
+	position: absolute;
+    top: 3px;
+    left: 20px;
+    margin-bottom: 0;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Livvic', sans-serif;
+    letter-spacing: 1.9px;
+    transition: transform .2s ease-out,color .2s ease-out;
+    transform-origin: 0 100%;
+    transform: translateY(22px);
+    cursor: text;
+    color: #414445;
+    -webkit-transition: .5s ease;
+    transition: .5s ease;
+}
+
+.input-container .bar {
+	position: absolute;
+	left: 10px;
+	bottom: 0;
+	background: #a09e9e;
+	width: 95%;
+	height: 1px;
+}
+
+.input-container .bar:before, .input-container .bar:after {
+	content: '';
+	position: absolute;
+	background: #2c1fa5;
+	width: 0;
+	height: 2px;
+	-webkit-transition: .2s ease;
+			transition: .2s ease;
+}
+
+.input-container .bar:before {
+  left: 50%;
+}
+
+.input-container .bar:after {
+  right: 50%;
+}
+
+.settingValidate > button {
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 500;
+    letter-spacing: 1.1px;
+}
+
+/*******************
+********************
+    Parametre de
+    sécurité
+********************
+*******************/
+
+.input-container button.toggle-password {
+    background: none;
+    border: 0;
+    position: absolute;
+    z-index: 500;
+    right: 30px;
+    bottom: 7px;
+    color: rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: .7s ease;
+    font-size: 18px;
+    /*visibility: hidden;*/
+}
+
+.input-container button.toggle-password:focus {
+    outline: 0;
+}
+
+.input-container button.toggle-password:hover {
+    color: rgba(0,0,0,0.6);
+    transform: scale(1.1);
+}
+
+/*.input-container input:focus ~ button {
+    visibility: visible;
+}*/
+
+.infoSecurity {
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+    color: rgba(0,0,0,0.7);
+    font-weight: 600;
+    letter-spacing: 1.1px;
+    font-style: italic;
+}
+
+
+/*******************
+********************
+    Parametre de
+    notifications
+********************
+*******************/
+
+.notification-checkbox {
+    margin: 0 10px;
+}
+
+.toggle {
+    --uiToggleSize: var(--toggleSize, 20px);
+    --uiToggleIndent: var(--toggleIndent, 10px);
+    --uiToggleBorderWidth: var(--toggleBorderWidth, 1.5px);
+    --uiToggleColor: var(--toggleColor,#000);
+    --uiToggleDisabledColor: var(--toggleDisabledColor, #868e96);
+    --uiToggleBgColor: var(--toggleBgColor, #fff);
+    --uiToggleArrowWidth: var(--toggleArrowWidth, 2px);
+    --uiToggleArrowColor: var(--toggleArrowColor, #fff);
+    display: inline-block;
+    position: relative;
+}
+
+.toggleInput {
+    position: absolute;
+    left: -99999px;
+}
+
+.toggleLabel {
+    display: inline-flex;
+    cursor: pointer;
+    min-height: var(--uiToggleSize);
+    padding-left: calc(var(--uiToggleSize) + var(--uiToggleIndent));
+}
+
+.toggleLabel:before, .toggleLabel:after {
+    content: "";
+    box-sizing: border-box;
+    width: 1em;
+    height: 1em;
+    font-size: var(--uiToggleSize);
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #fff;
+    border-radius: 2px;
+}
+
+.toggleLabel:before {
+    border: var(--uiToggleBorderWidth) solid var(--uiToggleColor);
+    z-index: 2;
+}
+
+.toggleInput:disabled ~ .toggleLabel:before {
+    border-color: var(--uiToggleDisabledColor);
+}
+
+.toggleInput:not(:disabled) ~ .toggleLabel:after {
+    background-color: var(--uiToggleBgColor);
+    opacity: 0;
+}
+
+.toggleInput:not(:disabled):checked ~ .toggleLabel:after {
+    opacity: 1;
+}
+
+.notification__text {
+    margin-bottom: auto;
+    margin-top: auto;
+}
+
+/*********
+ Couleur et taille de la fleche vrai 
+*******/
+
+.notification__text:before {
+    content: "";
+    box-sizing: border-box;
+    width: 0;
+    height: 0;
+    font-size: var(--uiToggleSize);
+    border-left-width: 0; 
+    border-bottom-width: 0; 
+    border-left-style: solid; 
+    border-bottom-style: solid;
+    border-color: var(--uiToggleArrowColor);
+    position: absolute;
+    top: .542em;
+    left: .2em;
+    z-index: 3;
+    transform-origin: left top;
+    transform: rotate(-40deg) skew(10deg); 
+}
+
+.toggleInput:not(:disabled):checked ~ .toggleLabel .notification__text:before {
+    width: .5em;
+    height: .25em;
+    border-left-width: var(--uiToggleArrowWidth);
+    border-bottom-width: var(--uiToggleArrowWidth);
+    will-change: width, height;
+    transition: width .1s ease-out .2s, height .2s ease-out;
+}
+
+.toggleLabel:before, .toggleLabel:after {
+    border-radius: 2px;
+}
+/******
+ animation pour le changement d'etat 
+ *****/
+
+.toggleInput:not(:disabled) ~ .toggleLabel:before,
+.toggleInput:not(:disabled) ~ .toggleLabel:after {
+    opacity: 1;
+    transform-origin: center center;
+    will-change: transform;
+    transition: transform .2s ease-out;
+}
+
+.toggleInput:not(:disabled) ~ .toggleLabel:before {
+    transform: rotateY(0deg);
+    transition-delay: .2s;
+}
+
+.toggleInput:not(:disabled):checked ~ .toggleLabel:after {
+    transform: rotateY(90deg);
+}
+
+.toggleInput:not(:disabled):checked ~ .toggleLabel:before {
+    transform: rotateY(-90deg);
+    transition-delay: 0s;
+}
+
+.toggleInput:not(:disabled):checked ~ .toggleLabel:after {
+    transform: rotateY(0deg);
+    transition-delay: .2s;
+}
+
+.notification__text:before {
+    opacity: 0;
+}
+
+.toggleInput:not(:disabled):checked ~ .toggleLabel .notification__text:before {
+    opacity: 1;
+    transition: opacity .1s ease-out .3s, width .1s ease-out .5s, height .2s ease-out .3s;
+}
+
+.toggle {
+    --toggleColor: #5a5679;
+    --toggleBgColor: #007bff;
+    --toggleSize: 25px;
+}
+
+.notification__text {
+    font-size: 16px;
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+}
+
+/*******************
+********************
+    Parametre de
+    Suppression
+********************
+*******************/
+.card-body__text {
+    font-size: 16px;
+    font-family: 'Exo 2', sans-serif;
+    letter-spacing: 1.2px;
+}
+
+/*******************
+********************
+    textearea
+page contact.html
+********************
+*******************/
+
+/*input-text*/
+
+textarea.input-text {
+    min-height: 150px;
+}
+
+.card .input-container.input-textarea {
+	position: relative;
+	padding-top: 30px;
+}
+
+.input-container>.input-text {
+	outline: none;
+	z-index: 1;
+	position: relative;
+	background: none;
+	width: 100%;
+	height: 35px;
+	color: #212121;
+	font-size: 16px;
+	letter-spacing: 1.9px;
+	font-weight: 500;
+	font-family: 'Exo 2', sans-serif;
+	padding-left: 20px;
+	border: 0;
+}
+
+.input-container .input-text:focus ~ label {
+	color: #2c1fa5;
+	-webkit-transform: translateY(-10px) scale(.8);
+			transform: translateY(-10px) scale(.8);
+}
+
+.input-container .input-text:focus ~ .bar:before,
+.input-container .input-text:focus ~ .bar:after {
+	width: 50%;
+}
+
+.input-container .input-text:valid ~ label {
+	color: #2c1fa5;
+	-webkit-transform: translateY(-10px) scale(.8);
+			transform: translateY(-10px) scale(.8);
+}
+
+.input-container .input-text:invalid ~ label {
+	color: #2c1fa5;
+	-webkit-transform: translateY(-10px) scale(.8);
+			transform: translateY(-10px) scale(.8);
+}
+
+.input-container.input-textarea label {
+	position: absolute;
+    top: 3px;
+    left: 5px !important;
+    margin-bottom: 0;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Livvic', sans-serif;
+    letter-spacing: 1.9px;
+    transition: transform .2s ease-out,color .2s ease-out;
+    transform-origin: 0 100%;
+    transform: translateY(22px);
+    cursor: text;
+    color: #414445;
+    -webkit-transition: .5s ease;
+    transition: .5s ease;
+}
+
+.input-container.input-textarea .bar {
+	position: absolute;
+	left: 0 !important;
+	bottom: 0;
+	background: #a09e9e;
+	width: 100% !important;
+	height: 1px;
+}
+
+.input-container .bar:before, .input-container .bar:after {
+	content: '';
+	position: absolute;
+	background: #2c1fa5;
+	width: 0;
+	height: 2px;
+	-webkit-transition: .2s ease;
+			transition: .2s ease;
+}
+
+.input-container .bar:before {
+  left: 50%;
+}
+
+.input-container .bar:after {
+  right: 50%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

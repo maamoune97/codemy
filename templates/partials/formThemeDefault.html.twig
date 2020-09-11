@@ -1,0 +1,27 @@
+{% block form_row %}
+    <div class="form-group row">
+        <div class="input-container col-md-12 col-sm-12 mb-2">
+            {{form_widget(form)}}
+            {{form_label(form)}}
+            <div class="bar"></div>
+        </div>
+        {{form_errors(form)}}
+    </div>
+{% endblock form_row %}
+
+{% block text_widget %}
+    <input type="text" name="{{full_name}}" id="{{id}}">
+{% endblock text_widget %}
+
+{% block password_widget %}
+    <input type="password" name="{{full_name}}" id="{{id}}" value="">
+    <button toggle="#{{id}}" type="button" class="toggle-password far fa-eye"></button>
+{% endblock password_widget %}
+
+{% block form_errors %}
+    {% for error in errors.form.errors %}
+        {% if loop.last %}
+            <span class="text-danger text-left ml-3">{{error.message}}</span>
+        {% endif %}
+    {% endfor %}
+{% endblock form_errors %}

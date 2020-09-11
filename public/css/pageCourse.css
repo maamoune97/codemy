@@ -1,0 +1,808 @@
+.pageCourse {
+	display: block;
+}
+
+/******************************
+*******************************
+        Section Banner Course
+*******************************
+******************************/
+
+.courseBanner {
+	background: linear-gradient(
+ 	-120deg, rgba(239, 67, 67, 0.73) 0%, #bf1335 100%, 
+ 	rgba(211, 216, 229, 0.72)
+ 	),url("https://placeimg.com/1230/200/arch");
+	height: 320px;
+	background-repeat: no-repeat;
+	background-size: cover;
+    padding-bottom: 10px;
+    position: relative;
+}
+
+ul.breadcrumb {
+  	padding: 15px 16px;
+  	list-style: none;
+    letter-spacing: 0.9px;
+    font-family: 'Exo', sans-serif;
+}
+
+ul.breadcrumb li {
+  	display: inline;
+  	font-size: 15px;
+}
+
+ul.breadcrumb li+li:before {
+  	padding: 8px;
+  	color: #8db3ce;
+  	content: "/\00a0";
+}
+
+ul.breadcrumb li a {
+  	color: #8db3ce;
+  	text-decoration: none;
+  	font-weight: 700;
+  	-webkit-transition: 0.3s linear;
+  	-o-transition: 0.3s linear;
+  	transition: 0.3s linear;
+}
+
+ul.breadcrumb li a:hover {
+  	color: #fff;
+  	-webkit-transform: scale(1.1);
+  	    -ms-transform: scale(1.1);
+  	        transform: scale(1.1);
+}
+
+.banner__coursePage--content {
+	padding: 5px;
+    display: block;
+}
+
+.banner__coursePage--infoteacher {
+    padding: 10px 5px 0 5px;
+}
+
+.title__course {
+	font-size: 2em;
+	font-weight: 600;
+	text-transform: capitalize;
+	color: rgb(255, 255, 255);
+    font-family: 'Livvic', sans-serif;
+}
+
+.infoteacher__content {
+    color: #fff;
+    font-weight: 500;
+    font-family: 'Livvic', sans-serif;
+    font-size: 17px;
+}
+
+@media only screen and (max-width: 620px){
+	.title__category {
+		font-size: 1.8em !important;
+	}
+
+	.banner__categoryPage--content {
+		text-align: center;
+	}
+}
+
+
+/******************************
+*******************************
+        Section Banner Course
+*******************************
+******************************/
+.container.profile 
+{
+    max-width: 960px;
+    position: relative;
+    margin-top: -215px;
+}
+
+@media only screen and (max-width:993px){
+    .container.profile {
+        margin-top: -190px;
+    }
+    
+     .title__course {
+        font-size: 1.8em !important;
+    }
+}
+
+@media only screen and (max-width:576px){
+    .container.profile {
+        margin-top: -170px;
+    }
+    
+    ul.breadcrumb li {
+        display: inline;
+        font-size: 13px;
+    }
+    
+    .title__course {
+        font-size: 1.5em !important;
+    }
+}
+
+@media only screen and (max-width: 430px){
+    .container.profile {
+        margin-top: -150px;
+    }
+}
+    
+@media only screen and (max-width: 385px){
+    .container.profile {
+        margin-top: -145px;;
+    }
+    
+    .title__course {
+        font-size: 1.2em !important;
+    }
+    
+    .courseInfo__item, .courseInfo__item .fas {
+        margin-left: 5px !important;
+    }
+    
+}
+
+/************************
+*************************
+ Porfile du cours
+*************************
+************************/
+
+.courseProfile
+{
+    background: #fff;
+    z-index: 1200;
+    margin: 10px 0;
+    box-shadow: 0 3px 7px 0 rgba(0,0,0,0.3);
+    display: block;
+}
+
+.courseProfile__grid
+{
+    display: grid;
+    display: -ms-grid;
+	-ms-grid-columns: 1fr;
+	grid-template-columns: 1fr;
+	grid-column-gap: 20px;
+    grid-row-gap: 20px;
+}
+
+@media screen and (min-width: 780px){
+    	.courseProfile__grid{
+    		/*-ms-grid-columns: (1fr)[2];*/
+    		grid-template-columns: repeat(2, 1fr);
+    		grid-auto-flow: row dense;
+    }
+}
+
+
+.courseInfo
+{
+    color: #767b78;
+    letter-spacing: 1.1px;
+    padding: 10px;
+}
+
+.courseInfo__item {
+    font-weight: 500;
+    margin-left: 10px;
+    line-height: 1.5;
+}
+
+.courseInfo__item .fas {
+    margin: 10px;
+    height: 18px;
+    width: 18px;
+    text-align: center;
+}
+
+/*****************************
+******************************
+    Video intro du cours
+******************************
+*****************************/
+.courseIntro {
+    display: flex;
+    background: rgba(0,0,0,0.3);
+    justify-content: center;
+    align-items: center;
+}
+
+
+.video-player
+{
+	position:relative;
+    overflow: hidden;
+    z-index: 9;
+    width: 100%;
+}
+
+.video
+{
+	display:block;
+	width:100%;
+	-o-object-fit:fill;
+       object-fit:fill;
+}
+
+/*******************
+********************
+    panneau de 
+    controles
+********************
+*******************/
+
+video::-webkit-media-controls-enclosure {
+  display:none !important;
+}
+
+
+.controls {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    flex-wrap: wrap;
+    border-top: 0.5px solid rgb(221, 201, 201);
+    background: rgba(0,0,0,0.5);
+  /*  transform: translateY(100%) translateY(-5px);
+    transition: all 0.2s;*/
+}
+
+.video-player:hover .controls {
+	transform: translateY(0);
+}
+
+
+/*******************
+********************
+    buttons
+********************
+*******************/
+
+.buttons {
+    padding: 5px;
+    align-items: center;
+    display: inline-flex;
+}
+
+.buttons button {
+    background: none;
+    border: 0;
+    cursor: pointer;
+    color: #fff;
+    position: relative;
+    display: inline-block;
+}
+
+.buttons button:focus {
+    outline: 0;
+}
+
+.buttons #play-pause::before {
+    content: '\f04b';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 16px;
+    width: 20px;
+    height: 20px;
+}
+
+.buttons #play-pause.play::before {
+    content: '\f04b';
+}
+
+.buttons #play-pause.pause::before {
+    content: '\f04c';
+}
+
+.buttons #mute::before {
+    content: '\f028';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 16px;
+    width: 20px;
+    height: 20px;
+}
+
+.buttons #mute.unMute::before {
+    content: '\f028';
+}
+
+.buttons #mute.mute::before {
+    content: '\f6a9';
+}
+
+/************************
+    bouton de droite
+************************/
+
+.buttonsRight {
+    align-items: center;
+    display: inline-flex;
+    position: absolute;
+    bottom: 2px;
+    right: 5px;
+
+}
+
+.buttonsRight button {
+    background: none;
+    border: 0;
+    cursor: pointer;
+    color: #fff;
+    position: relative;
+    display: inline-block;
+}
+
+.buttonsRight button:focus {
+    outline: 0;
+}
+
+.buttonsRight #fullScreenBtn::before {
+    content: '\f065';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 16px;
+    width: 20px;
+    height: 20px;
+}
+
+.buttonsRight #fullScreenBtn.full::before {
+    content: '\f065';
+}
+
+.buttonsRight #fullScreenBtn.compress::before {
+    content: '\f066';
+}
+
+.current, .duration
+{
+    color: #fff;
+    font-size: 16px;
+}
+
+.duration {
+    padding-right: 7px;
+}
+
+.duration::before {
+    content: '/';
+    font-size: 16px;
+    bottom: 3px;
+}
+
+@media only screen and (max-width: 450px) {
+  
+    .controls {
+        height: 32px;
+    }
+
+    .blue-bar {
+        height: 7px !important;
+    }
+
+    .buttons #play-pause::before {
+        font-size: 13px;
+    }
+
+    .buttons #mute::before {
+        font-size: 13px;
+    }
+
+    .current, .duration {
+        font-size: 13px;
+    }
+
+    .duration::before {
+        font-size: 13px;
+    }
+
+    .buttonsRight #fullScreenBtn::before {
+        font-size: 13px;
+    }
+
+    .buttons {
+        padding: 0 !important;
+    }
+
+    .buttonsRight {
+        bottom: -3px;
+        right: 0;
+    }
+
+    input[type=range] {
+        margin-bottom: -2px
+    }
+}
+/*******************
+********************
+    bare de 
+    progression
+********************
+*******************/
+
+.blue-bar {
+    height: 8px;
+    width: 100%;
+    background: rgb(221, 201, 201);
+    cursor: pointer;
+}
+
+.progressBar {
+    height: 8px;
+    background-color: rgba(27, 101, 238, 0.945);
+}
+
+/*******************
+********************
+    Volume
+********************
+*******************/
+
+
+input[type=range] {
+  width: 45%;
+  margin-left: 1px;
+}
+
+/*******************
+********************
+   navigation
+      ancre
+********************
+*******************/
+@media only screen and (max-width: 992px) {
+    .navigation-list {
+        margin-top: 0 !important;
+    }
+}
+
+.ancre>.container {
+    max-width: 1200px;
+    border-bottom: 1px solid #EBEFF2;
+}
+
+.ancre-navigation {
+    line-height: 40px;
+}
+
+.navigation-list {
+    list-style: none;
+    overflow-x: auto;
+    white-space: nowrap;
+    margin-top: 25px;
+}
+
+.navigation-item {
+    display: inline-block;
+    text-decoration: none;
+}
+
+ul.navigation-list li a {
+    text-decoration: none;
+    font-weight: 600;
+    color: black;
+    letter-spacing: 1px;
+    transition: all 0.5s ease-out;
+}
+
+ul.navigation-list li a:hover {
+    transform: scale(1.1);
+    color: #0d71b8;
+}
+
+/*******************
+********************
+   Note dans la 
+   section
+   ancre et note
+********************
+*******************/
+
+.ratingTitle {
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #0d71b8;
+}
+
+.ratingContent {
+    display: inline-flex;
+    font-size: 20px;
+}
+
+.ratingNumber {
+    font-weight: 800;
+    color: #f7bb56;
+}
+
+.ratingStar {
+    color: #f7bb56;
+}
+
+.numberSubscribe {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/*******************
+********************
+    Description du
+        cours
+********************
+*******************/
+.courseSection.container {
+    padding: 0 20px;
+}
+
+.courseContent {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+
+#courseId {
+    margin-right: 30px;
+    max-width: 800px;
+}
+
+.titlePartie__ancre {
+    margin-left: 30px;
+    margin-bottom: 10px;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    font-family: 'Livvic', 'Poppins', sans-serif;
+    color: #0d71b8;
+
+}
+
+.textContent__ancre {
+    margin: 10px;
+    font-family: 'Merriweather', 'Poppins', 'Exo', sans-serif;
+    letter-spacing: 1.1px;
+    font-size: 16px;
+    line-height: 26px;
+}
+
+.prerequisList {
+    list-style: square inside;
+}
+
+@media only screen and (max-width: 991px) {
+    #courseId {
+        margin-right: 0 !important;
+    }
+
+    .courseSection.container {
+        padding: 0 !important;
+    }
+} 
+
+/*******************
+********************
+    aside a droit
+    pour le bouton
+    commencer
+********************
+*******************/
+
+.courseBegin {
+    display: block;
+    min-width: 215px;
+    margin-top: 100px;
+    margin-bottom: 20px;
+    text-align: center;
+    -webkit-border-radius: 5px;
+            border-radius: 5px;
+    -webkit-box-shadow: rgba(139, 172, 167, 0.35) 0px 0px 10px 0px;
+            box-shadow: rgba(139, 172, 167, 0.35) 0px 0px 10px 0px;
+    max-height: 350px;
+}
+
+.courseBegin__block--head {
+    padding: 20px;
+    border-bottom: 1px solid #EBEFF2;
+}
+
+.courseBegin__block--footer {
+    padding: 20px;
+}
+
+.courseBegin__text, .shareCourse__title {
+    color: #767b78;
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.courseBegin__button {
+    margin-top: 15px;
+}
+
+.buttonBegin__link {
+    text-decoration: none;
+    font-size: 16px;
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+}
+
+.buttonBegin__link>span {
+    color: #fff;
+    font-weight: 700;
+}
+
+.shareCourse__icon {
+    margin: 5px 0;
+    text-align: center;
+}
+
+.iconSocial__network {
+    height: 30px;
+    width: 34px;
+    font-size: 18px;
+}
+
+@media only screen and (max-width: 991px) {
+    div.courseBegin {
+        display: none;
+    }
+}
+
+/*******************
+********************
+Partie description
+   du cours
+********************
+*******************/
+
+
+/*******************
+********************
+   Partie programme
+   du cours
+********************
+*******************/
+
+.courseProgramme>.textContent__ancre {
+    border: 1px solid #8db3ce;
+    margin-top: 15px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    border-radius: 4px;
+    background: #EBEFF2;
+}
+
+.programmeList__partie {
+    list-style: none;
+}
+
+.programmePartie__item>span {
+    font-weight: 700;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+    color: #0d71b8;
+}
+
+.programmePartie__item>ol {
+    padding-top: 5px;
+    text-transform: capitalize;
+    padding-right: 12px;
+}
+
+@media only screen and (max-width: 991px) {
+    .programmeList__partie {
+        padding: 5px !important;
+    }
+} 
+
+/*******************
+********************
+   Section Photo
+   profil du 
+   formateur
+********************
+*******************/
+
+.teacherProfile>.textContent__ancre {
+    padding: 30px;
+    display: flex;
+}
+
+.teacherProfile__image>img {
+    height: 120px;
+    width: 115px;
+    border-radius: 50%;
+    border: 3px solid #ebeff2;
+}
+
+.profileContent {
+    vertical-align: middle;
+    padding: 30px 20px;
+}
+
+.profileName {
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+}
+
+.profileProfession {
+    font-family: 'Exo 2', sans-serif;
+    font-style: italic;
+    font-size: 15px;
+    color: #767b78;
+}
+
+.courseDescription, .coursePrerequis, .courseProgramme {
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+@media only screen and (max-width: 991px) {
+    .teacherProfile>.textContent__ancre {
+        padding: 30px 0px !important;
+        margin: 0;
+    }
+}
+
+@media only screen and (max-width: 765px) {
+    .profileContent {
+        padding: 20px 0 20px 10px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .profileContent {
+        padding: 15px 0 0 10px;
+    }
+}
+
+/*******************
+********************
+   Avis du cours
+********************
+*******************/
+
+.formAvis {
+    padding: 0 30px ;
+}
+
+.buttonAvis {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.buttonAvis>button {
+    background: #f2f2f2;
+    padding: 4px 10px;
+    text-align: center;
+    font-size: 16px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
+    display: inline-block;
+    width: auto;
+    position: relative;
+    text-transform: capitalize;
+    font-family: 'Exo 2', sans-serif;
+    letter-spacing: 1.9px;
+    border: none;
+    transition: all 0.3s;
+}
+
+.buttonAvis>button:hover {
+    transform: scale(1);
+    color: #1F46CF;
+}
+

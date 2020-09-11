@@ -1,0 +1,51 @@
+{% extends "base.html.twig" %}
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="/css/formateur.css">
+    {% block styleFormator %}{% endblock %}
+{% endblock %}
+
+{% block body %}
+<div class="formatorPage">
+    <div class="formator-container">
+        <div class="formator__sidebar">
+            <div class="formator__sidebar--container">
+                <ul class="formator__sidebar--list">
+                    <a href="" class="formator__sidebar--link">
+                        <li class="formator__sidebar--item open">
+                            <span class="formator__sidebar--icon"><i class="fas fa-book"></i></span>
+                            <span class="formator__sidebar--title">Cours</span>
+                        </li>
+                    </a>
+                    <a href="" class="formator__sidebar--link">
+                        <li class="formator__sidebar--item">
+                            <span class="formator__sidebar--icon"><i class="fas fa-comment-alt"></i></span>
+                            <span class="formator__sidebar--title">Communication</span>
+                        </li>
+                    </a>
+                    <a href="statistique.html" class="formator__sidebar--link">
+                        <li class="formator__sidebar--item">
+                            <span class="formator__sidebar--icon"><i class="far fa-chart-bar"></i></span>
+                            <span class="formator__sidebar--title">Statistique</span>
+                        </li>
+                    </a>
+                    <a href="" class="formator__sidebar--link">
+                        <li class="formator__sidebar--item">
+                            <span class="formator__sidebar--icon"><i class="fas fa-tools"></i></span>
+                            <span class="formator__sidebar--title">Outlis</span>
+                        </li>
+                    </a>
+                    <a href="" class="formator__sidebar--link">
+                        <li class="formator__sidebar--item">
+                            <span class="formator__sidebar--icon"><i class="fas fa-user"></i></span>
+                            <span class="formator__sidebar--title">Profil professionel</span>
+                        </li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+        {% block bodyFormator %}
+            
+        {% endblock %} 
+    </div>
+</div>
+{% endblock %}

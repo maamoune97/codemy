@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="Ahmed Abdallah, Maamoune Hassane">
+        <meta name="generator" content="Jekyll v3.8.5">
+        <title>{% block title %}Bienvenue sur Codemy{% endblock %}</title>
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <!-- <link rel="stylesheet" href="/fontawesome/css/all.min.css"> -->
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <link rel="shortcut icon" href="/media/images/ressources/icone.png" type="image/x-icon">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        {% block style %}{% endblock %}
+    </head>
+    <body>
+        {% block header %}
+            {% include "partials/header.html.twig" %}
+        {% endblock %}
+
+        {% block body %}{% endblock %}
+        
+        {% block footer %}
+            {% include "partials/footer.html.twig" %}
+        {% endblock %}
+        
+        <div class="scroll-top-wrapper ">
+            <span class="scroll-top-inner">
+              <i class="fas fa-chevron-up"></i>
+            </span>
+        </div>
+        <script type="text/javascript" src="/js/jquery.min.js"></script>
+        <script type="text/javascript" src="/js/popper.min.js"></script>
+        <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/js/app.js"></script>
+        <script type="text/javascript" src="/js/finitions.js"></script>
+        <script type="text/javascript" src="/js/reglog.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script>
+            $('#loginFormJS').submit(function(e){
+                e.preventDefault();
+                url = this.action;
+                let username = $('#username').val();
+                let password = $('#password').val();
+                //let data = JSON.stringify({username: username, password: password});
+                /*axios.get(url).then(function(response){
+                    console.log(response);
+                });*/
+                
+                /*
+                $.ajax({
+                    type: 'POST',
+                    url: '/login',
+                    data:  {
+                        "username": username,
+                        "password": password,
+                    },
+                    contentType: 'application/json',
+                    success: function (data, status) {
+                        console.log("data: "+ data);
+                        console.log("staut: "+ status);
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                      alert(errorThrown);
+                    }
+                });
+                */
+                
+            });
+
+            $('#registerFormJS').submit(function(event){
+                event.preventDefault();
+                axios.post('/register',{
+                    firstName: 'Fred',
+                    lastName: 'Flintstone'
+                })
+                .then(function(response){
+                    console.log(response);
+                })
+                .catch(function(errors){
+                    console.log(errors);
+                })
+            });
+</script>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

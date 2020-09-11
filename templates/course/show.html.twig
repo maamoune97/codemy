@@ -1,0 +1,274 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{course.title}}{% endblock %}
+
+{% block style %}<link rel="stylesheet" type="text/css" href="/css/pageCourse.css">{% endblock %}
+
+{% block body %}
+<div role="main" class="pageCourse">
+    <section class="courseBanner">
+        <div class="row">
+            <div class="container col-xs-12">
+                <ul class="breadcrumb mb-0" style="background: none;">
+                    <li class="breadcrumb__list"><a href="{{path('home')}}">Acceuil</a></li>
+                    <li class="breadcrumb__list"><a href="#">Catalogues</a></li>
+                    <li class="breadcrumb__list"><a href="#">{{course.subCategory.category.title}}</a></li>
+                    <li style="color: #8db3ce; font-weight: 600;">{{course.subCategory.title}}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="banner__coursePage--content text-center col-xs-12 col-12 col-sm-6 col-md-6 ">
+                    <h3 class="title__course">{{course.title}}</h3>
+                </div>
+                <div class="banner__coursePage--infoteacher col-xs-12 col-12 col-sm-6 col-md-6">
+                    <div class="text-center">
+                        <div class="infoteacher__content">
+                            <span>
+                                Proposé Par :
+                            </span>
+                            <h6>{{course.formator.fullName}}</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container profile">
+            <div class="courseProfile">
+                <div class="courseProfile__grid">
+                    <div class="courseIntro">
+                        <div class="video-player">
+                            <video class="video">
+                                <source src="/media/video/courses/1/video_test.mp4">
+                            </video>
+                        
+                            <div class="controls">
+                              <div class="blue-bar">
+                                <div class="progressBar"></div>
+                              </div>
+
+                              <div class="buttons">
+                                <button id="play-pause"></button>
+                                <button id="mute" class="bouttonMute"></button>
+                                <input type="range" class="custom-range" id="volumeSlider" min="0" max="100" value="50" step="1">                  
+                              </div>
+                              <div class="buttonsRight">
+                                <span class="current">00:00</span>
+                                <span class="duration">00:00</span>
+                                <button id="fullScreenBtn"></button>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="courseInfo">
+                        <div class="courseInfo__item">
+                            <span><i class="fas fa-language"></i></span>
+                            <span>Langue : {{course.language}}</span>
+                        </div>
+                        <div class="courseInfo__item">
+                            <span><i class="fas fa-signal"></i></span>
+                            <span>Niveau : {{course.level}}</span>
+                        </div>
+                        <div class="courseInfo__item">
+                            <span><i class="fas fa-book-open"></i></span>
+                            <span> {{course.parts | length}} chapitres</span>
+                        </div>
+                        <div class="courseInfo__item">
+                            <span><i class="fas fa-hourglass-start"></i></span>
+                            <span>Durrée : 5 Semaines </span>
+                        </div>
+                        <div class="courseInfo__item">
+                            <span><i class="fas fa-tachometer-alt"></i></span>
+                            <span>effort estimé: 1h30/Semaine</span>
+                        </div>
+                        <div class="courseInfo__item">
+                            <span><i class="fas fa-graduation-cap"></i></span>
+                            <span>{{course.subCategory.category.title}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <section class="ancre">
+      <div class="container">
+        <div class="row">
+          <div class="ancre-navigation text-center col-12 order-2 col-sm-12 order-sm-2 col-md-12 order-md-2 col-lg-7 order-lg-1">
+            <ul class="navigation-list p-0">
+              <li class="navigation-item pr-3">
+                <a class="ancre-nav" href="#resume">Description</a>
+              </li>
+              <li class="navigation-item pr-3">
+                <a class="ancre-nav" href="#prerequis">Prérequis</a>
+              </li>
+              <li class="navigation-item pr-3">
+                <a class="ancre-nav" href="#programme">Programme du cours</a>
+              </li>
+              <li class="navigation-item pr-3">
+                <a class="ancre-nav" href="#enseignant">Formateur</a>
+              </li>
+              <li class="navigation-item pr-3">
+                <a class="ancre-nav" href="#avis">Avis</a>
+              </li>
+            </ul>
+          </div>
+          <div class="ratingCourse cols-12 order-1 col-sm-12 order-sm-1 col-md-12 order-md-1 col-lg-5 order-lg-2 p-1">
+              <div class="ratingDiv text-center col-12">
+                <div class="ratingTitle">
+                  <span>Notes de la communauté</span>
+                </div>
+                <div class="ratingContent">
+                  <div class="ratingNumber">
+                    <span>4.5</span>
+                  </div>
+                  <div class="ratingStar pl-2">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                  </div>
+                </div>
+                <div class="numberSubscribe">
+                  <span><em>8564 inscrits</em></span>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="courseSection container">
+      <div class="courseContent">
+        <div id="courseId">
+          <div class="courseDescription" id="resume">
+            <div class="titlePartie__ancre">
+              <span>Description</span>
+            </div>
+            <div class="textContent__ancre" id="about">
+            {{course.description | raw}}
+            </div>
+          </div>
+          <div class="coursePrerequis" id="prerequis">
+            <div class="titlePartie__ancre">
+              <span>Prérequis</span>
+            </div>
+            <div class="textContent__ancre">
+              {% if course.prerequisites is empty %}
+                <p>Aucun prérequis n'est nécessaire pour suivre ce cours</p>
+              {% else %}
+                <p>Afin de pouvoir suivre ce cours plus facilement il est nécessaires d'avoir des connaissance sur les domaines suivantes :</p>
+                <ul class="prerequisList">
+                  {% for prerequisite in course.prerequisites %}
+                    <li class="prerequiItem" >{{prerequisite.title}}</li>                  
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </div>
+          </div>
+          <div class="courseProgramme" id="programme">
+            <div class="titlePartie__ancre">
+              <span>Programme du cours</span>
+            </div>
+            <div class="textContent__ancre">
+              <!-- Debut des parties -->
+              {% for part in course.parts %}
+              <ul class="programmeList__partie">
+                  <li class="programmePartie__item">
+                    <span>Semaine {{loop.index}}: {{part.title}}</span>
+                    <ol class="programmeList__Chapter">
+                      <!-- Debut des chapitres -->
+                      {% for chapter in part.chapters %}
+                        <li class="programmeChapter__item">{{chapter.title}}</li>
+                      {% endfor %}
+                      <!-- Debut des chapitres -->
+                    </ol>
+                  </li>
+                </ul>
+              {% endfor %}
+              <!-- Fin des parties -->
+            </div>
+          </div>
+        </div>
+        <div class="courseBegin">
+          <div class="courseBegin__block">
+            <div class="courseBegin__block--head">
+              <div class="courseBegin__text">
+                <span>Se former avec</span>
+              </div>
+              <div class="courseBegin__logo">
+                <img src="/media/images/ressources/logo.png" alt="logo" class="header_logo">
+              </div>
+              <div class="courseBegin__button">
+                <a href="{{path('course_reading', {'slugCourse': course.slug, 'slug': slugNextChapter})}}" class="buttonBegin__link btn btn-primary mr-0">
+                  <span id="buttonBegin__text">Commencez le cours</span>
+                </a>
+              </div>
+            </div>
+            <div class="courseBegin__block--footer">
+              <div class="shareCourse">
+                <div class="shareCourse__title">
+                  <span>Partager le cours sur</span>
+                </div>
+                <div class="shareCourse__icon">
+                  <a class="pr-2" href="#"><img class="iconSocial__network" alt="logo facebook" src="/media/images/ressources/icons/facebook.ico"></a>
+                  <a class="pr-2" href="#"><img class="iconSocial__network" alt="logo twitter" src="/media/images/ressources/icons/twitter.ico"></a>
+                  <a class="pr-2" href="#"><img class="iconSocial__network" alt="logo instagram" src="/media/images/ressources/icons/instagram.ico"></a>
+                  <a href="#"><img class="iconSocial__network" alt="logo eveloppe" src="/media/images/ressources/icons/envelope.ico"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="container">
+      <div class="teacherProfile" id="enseignant">
+        <div class="titlePartie__ancre">
+          <span>Formateur</span>
+        </div>
+        <div class="textContent__ancre">
+          <div class="teacherProfile__image">
+            <img src="/media/images/users/1/profile.jpg" alt="photo du formateur">
+          </div>
+          <div class="profileContent">
+            <div class="profileName">
+              <span>{{course.formator.fullName}}</span>
+            </div>
+            <div class="profileProfession">
+              <span>instructor->profesionnal_title</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="avis">
+      <div class="container">
+
+    </div>
+    </section>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+<script>
+    $(function(){
+    // au clic sur un lien
+      $('a.ancre-nav').on('click', function(evt){
+        // bloquer le comportement par défaut: on ne rechargera pas la page
+        evt.preventDefault(); 
+        // enregistre la valeur de l'attribut  href dans la variable target
+    var target = $(this).attr('href');
+        /* le sélecteur $(html, body) permet de corriger un bug sur chrome 
+        et safari (webkit) */
+    $('html, body')
+        // on arrête toutes les animations en cours 
+        .stop()
+        /* on fait maintenant l'animation vers le haut (scrollTop) vers 
+          notre ancre target */
+        .animate({scrollTop: $(target).offset().top}, 1500 );
+      });
+   
+    });
+</script>
+{% endblock %}

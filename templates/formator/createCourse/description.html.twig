@@ -1,0 +1,300 @@
+{% extends "formator/baseFormator.html.twig" %}
+{# {% form_theme form 'bootstrap_4_layout.html.twig' _self %} #}
+{% form_theme form  _self %}
+{% block bodyFormator %}
+<div class="createCourse__main">
+    <div class="row">
+        {% include "formator/createCourse/navbarCreateCourse.html.twig" %}
+        <div class="col-lg-9 creatCourse-container">
+            <div class="creatCourse-title">
+                <h2>Description du cours</h2>
+            </div>
+            <div class="creatCourse-text-alert alert alert-info">
+                Cette section est sans doute la plus important. toutes les informations que vous donnerez
+                seront afficher sur la page d'acceuil de votre cours.
+            </div>
+            <div>
+                <div class="creatCourse-content">
+                    {{form_start(form)}}
+
+                    {{form_row(form.title)}}
+
+                    {{form_row(form.description)}}
+
+                    <div class="row justify-content-between">
+
+                        <div class="col-md-2 pl-0">
+                            {{form_row(form.level)}}
+                        </div>
+
+                        <div class="col-md-2">
+                            {{form_row(form.language)}}
+                        </div>
+
+                        <div class="col-md-4">
+                            {{form_row(form.category)}}
+                        </div>
+                        <div class="col-md-4">
+                            {{form_row(form.subCategory)}}
+                        </div>
+                    </div>
+                    <span class="h5">Prérequis</span><span class="ml-1 btn-hover-display-info">
+                        <i class="far fa-question-circle"></i>
+                        <div class="window-info-prerequi">
+                            Si il faut avoir des connaissances de base pour suivre
+                            votre cours veillez ajouter les prerequis en cliquent sur "Ajouter
+                            un prerequis"
+                        </div>
+                    </span>
+
+                    <div id="contentPrerequis" data-prototype='<div class="prerequis form-group mt-2" id="block__name__">
+                            <div class="row">
+                                <div class="col-10 pl-0">
+                                    <input type="text" class="form-control prerequis-item" name="" id="prerequis__name__input"
+                                        placeholder="Exemple : savoir utiliser un ordinateur">
+                                </div>
+                                <div class="col">
+                                <button type="button" class="btn btn-outline-danger" data-action="delete" data-target="#block__name__" >
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                                </div>
+                            </div>
+                        </div>'>
+                        <input type="hidden" name="" id="counter_block_prerequis" value="0">
+                    </div>
+
+                    <div class="btnAddContent mt-4">
+                        <span id="addPrerequis">
+                            <i class="fas fa-plus mr-2"></i>Ajouter un prérequis
+                        </span>
+                    </div>
+                    <div class="creatCourse-btn-next-step mt-5 mb-1">
+                        <input type="submit" value="Enregistrer et passer à l'étape suivante" class="btn btn-danger">
+                    </div>
+
+                    {{form_end(form)}}
+                    {# <form action="" method="POST" id="descriptionForm">
+                        <div class="form-group creatCourse-form">
+                            <label for="titre">Titre du cours</label>
+                            <input class="creatCourse-input form-control is-invalid" id="titre" type="text"
+                                placeholder="Donnez un titre a votre vours" value="">
+                            <small class="invalid-feedback">Ce titre est déja utiliser par un autre cours</small>
+                        </div>
+
+                        <div class="form-group creatCourse-form">
+                            <label for="resume">Résume du cours</label>
+                            <textarea class="creatCourse-textarea form-control" id="resume" type="text"
+                                placeholder="Donnez un resumé ou une description a votre cours"></textarea>
+                        </div>
+
+                        <div class="row justify-content-between">
+                            <div class="col-md-2 pl-0">
+                                <div class="form-group creatCourse-form">
+                                    <label for="level">Niveau</label>
+                                    <select class="creatCourse-input form-control" id="level">
+
+                                        <option value="starter">Débutant</option>
+
+                                        <option value="middle">Intermediaire</option>
+
+                                        <option value="high">Elevée</option>
+
+                                        <option value="Expert">Expert</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group creatCourse-form">
+                                    <label for="langue">Langue</label>
+                                    <select class="creatCourse-input form-control" id="langue">
+
+                                        <option value="Fr">Français</option>
+
+                                        <option value="Ang">Anglais</option>
+
+                                        <option value="Es">Espagnol</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group creatCourse-form">
+                                    <label for="category">Categorie</label>
+                                    <select class="creatCourse-input form-control" id="category">
+                                        <option value="0" selected>--categorie--</option>
+                                        <option value="Physique">Physique</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <input type="hidden" id="idSubCategorySelected"
+                                value="<?=$course->sub_categories_id ?? '';?>">
+                            <div class="col-md-4 pr-0">
+                                <div class="form-group creatCourse-form">
+                                    <label for="subCategory">Sous-categorie</label>
+                                    <select class="creatCourse-input form-control" id="subCategory" type="text">
+                                        <option value="0" selected>--sous-categorie--</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <span class="h5">Prérequis</span><span class="ml-1 btn-hover-display-info">
+                            <i class="far fa-question-circle"></i>
+                            <div class="window-info-prerequi">
+                                Si il faut avoir des connaissances de base pour suivre
+                                votre cours veillez ajouter les prerequis en cliquent sur "Ajouter
+                                un prerequis"
+                            </div>
+                        </span>
+
+                        <div id="contentPrerequis" data-prototype='<div class="prerequis form-group mt-2" id="block__name__">
+                                <div class="row">
+                                    <div class="col-10 pl-0">
+                                        <input type="text" class="form-control prerequis-item" name="" id="prerequis__name__input"
+                                            placeholder="Exemple : savoir utiliser un ordinateur">
+                                    </div>
+                                    <div class="col">
+                                    <button type="button" class="btn btn-outline-danger" data-action="delete" data-target="#block__name__" >
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    </div>
+                                </div>
+                            </div>'>
+                            <input type="hidden" name="" id="counter_block_prerequis" value="0">
+                        </div>
+
+                        <div class="btnAddContent mt-4">
+                            <span id="addPrerequis">
+                                <i class="fas fa-plus mr-2"></i>Ajouter un prérequis
+                            </span>
+                        </div>
+                        <div class="creatCourse-btn-next-step mt-5 mb-1">
+                            <input type="submit" value="Enregistrer et passer à l'étape suivante"
+                                class="btn btn-danger">
+                        </div>
+                    </form> #}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block form_row %}
+<div class="form-group creatCourse-form">
+    {{form_label(form)}}
+    {{form_widget(form)}}
+    {{form_errors(form)}}
+</div>
+{% endblock form_row %}
+
+{% block text_widget %}
+<input type="text" name="{{full_name}}" id="{{id}}" class="creatCourse-input form-control form-control {{ errors|length > 0 ? 'is-invalid' : ''}}"
+    placeholder="{{attr.placeholder}}" {% if value is not empty %}value="{{ value }}" {% endif %}>
+{% endblock text_widget %}
+
+{% block textarea_widget %}
+<textarea class="creatCourse-textarea form-control form-control {{ errors|length > 0 ? 'is-invalid' : ''}}" id="{{id}}" name="{{full_name}}"
+    placeholder="{{attr.placeholder}}">{{value is not empty ? value : ''}}</textarea>
+{% endblock %}
+
+{%- block choice_widget_collapsed  -%}
+    <select name="{{full_name}}" id="{{id}}" class="creatCourse-input form-control">
+        {%- set options = choices -%}
+        {{- block('choice_widget_options') -}}
+    </select>
+{%- endblock choice_widget_collapsed  -%}
+
+{%- block choice_widget_options -%}
+    {% for group_label, choice in options %}
+        {%- if choice is iterable -%}
+            <optgroup label="{{ choice_translation_domain is same as(false) ? group_label : group_label|trans({}, choice_translation_domain) }}">
+                {% set options = choice %}
+                {{- block('choice_widget_options') -}}
+            </optgroup>
+        {%- else -%}
+            <option value="{{ choice.value }}"{% if choice.attr %}{% with { attr: choice.attr } %}{{ block('attributes') }}{% endwith %}{% endif %}{% if not render_preferred_choices|default(false) and choice is selectedchoice(value) %} selected="selected"{% endif %}>{{ choice_translation_domain is same as(false) ? choice.label : choice.label|trans({}, choice_translation_domain) }}</option>
+        {%- endif -%}
+    {% endfor %}
+{%- endblock choice_widget_options -%}
+
+{% block form_errors -%}
+{%- if errors|length > 0 -%}
+<span class="{% if form is not rootform %}invalid-feedback{% else %}alert alert-danger{% endif %} d-block">
+    {%- for error in errors -%}
+    <span class="d-block">
+        <span class="form-error-icon badge badge-danger text-uppercase">{{ 'Erreur'|trans({}, 'validators') }}</span>
+        <span class="form-error-message">{{ error.message }}</span>
+    </span>
+    {%- endfor -%}
+</span>
+{%- endif %}
+{%- endblock form_errors %}
+
+{% block javascripts %}
+<script>
+    $(document).ready(function () {
+
+        //Recuperation des sous-catégories selon la catégorie par ajax
+
+        function getSubCategoriesViaAjax() {
+            const category = $('#course_category').val();
+            $.ajax({
+                url: '/formator/create-course/get-sub-categories',
+                type: 'POST',
+                data: {
+                    'category': category,
+                },
+                success: function (data) {
+                    $('#course_subCategory').html('');
+                    for (const [key, value] of Object.entries(data)) {
+                        let option = '<option value="' + key + '">' + value + '</option>';
+                        $('#course_subCategory').append(option);
+                    }
+                },
+                error: function () {
+                    alert("Une erreur s'est produite! Merci de résayer.");
+                    $('#course_subCategory').html('');
+                }
+            });
+        }
+
+        getSubCategoriesViaAjax();
+
+        $('#course_category').change(function () {
+            category = $('#course_category').val();
+            $('#course_subCategory').html('');
+            getSubCategoriesViaAjax();
+        });
+
+
+        /* ------------------------------------------------------------ */
+
+        //Geestion des prérequis
+
+        $('#addPrerequis').click(function () {
+
+            const index = +$('#counter_block_prerequis').val();
+
+            const tmpl = $("#contentPrerequis").data('prototype').replace(/__name__/g, index);
+
+            $('#contentPrerequis').append(tmpl);
+            $('#counter_block_prerequis').val(index + 1);
+            handleDeleteButton();
+
+        });
+
+        function handleDeleteButton() {
+            $('button[data-action="delete"]').click(function () {
+                const target = this.dataset.target;
+                $(target).remove();
+            });
+
+        }
+
+        handleDeleteButton();
+
+    });
+</script>
+{% endblock %}

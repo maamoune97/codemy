@@ -1,0 +1,58 @@
+{% extends "formator/baseFormator.html.twig" %}
+
+{% block bodyFormator %}
+<div class="createCourse__main">
+    <div class="row">
+        {% include "formator/createCourse/navbarCreateCourse.html.twig" %}
+        <div class="col-lg-9 creatCourse-container">
+            <div class="creatCourse-title">
+                <h2>Image et video</h2>
+            </div>
+            <div class="creatCourse-text-alert alert alert-info">
+                Dans cette section vous pouvez ajouter une magnifique image pour mettre en avant
+                votre cours ainsi qu'une video d'introduction ou de promotion. Sachez qu'un cours
+                avec une video de promotion bien réalisé aura plus de chance d'attirer des apprenants.
+            </div>
+            <div>
+                <div class="creatCourse-content">
+                    <form action="">
+                        <div class="form-group creatCourse-form">
+                            <label for="fileImage">Image de couverture</label>
+                            <div class="file-field">
+                                <div class="file-fieldContent">
+                                    <div class="file-field-image">
+                                        <img src="https://placeimg.com/350/225/people" alt="Image de couverture">
+                                    </div>
+                                    <div class="btn btn-primary">
+                                        <span><i class="fas fa-cloud-upload-alt mr-2" aria-hidden="true"></i>Choisir une
+                                            image</span>
+                                        <input type="file" id="fileImage" multiple>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group creatCourse-form">
+                            <label for="fileImage">Video promotionnelle</label>
+                            <div class="file-field">
+                                <div class="file-fieldContent">
+                                    <div class="file-field-video">
+                                        <img src="https://placeimg.com/350/225/people" alt="Image de couverture">
+                                    </div>
+                                    <div class="btn btn-primary">
+                                        <span><i class="fas fa-cloud-upload-alt mr-2" aria-hidden="true"></i>Choisir une
+                                            video</span>
+                                        <input type="file" id="fileImage" multiple>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="creatCourse-btn-next-step mt-5 mb-1">
+                            <a href="ccProgram.html" class="btn btn-danger">Je passe à l'étape suivante</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

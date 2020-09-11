@@ -1,0 +1,218 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Mon profile{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" type="text/css" href="/css/profil.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/css/settings.css" media="screen">
+{% endblock %}
+{% set profile = app.user.profile ? app.user.profile : false %}
+{% block body %}
+<div class="profil-page" role="main">
+    <div class="profil-page-banner">
+        <div class="title-page-profil">
+            <h4>Mon profil</h4>
+        </div>
+    </div>
+    <div class="container-profil-page">
+        <div class="content-profil-page">
+            <div class="image-profil-page">
+                <div class="row image-content-profil-page justify-content-center">
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        <div class="col-8 col-md-4 form-image">
+                            <img src="/media/images/users/1/profile.jpg" alt="Photo de profil" class="img-profil">
+                            <div class="browser-button">
+                                <i class="fas fa-pencil-alt"></i>
+                                <input title="Choisir une photo de profil" type="file" class="browser-input" required
+                                    name="imgProfile" id="uploadedFile">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="about-me container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-9" id="viewProfil">
+                        <div class="apropo card border-gray">
+                            <div class="card-header">
+                                <span class="title-card-header-pg">
+                                    A propos de moi
+                                </span>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-about-me">
+                                    <li class="about-me-item">
+                                        <div class="about-me-content">
+                                            <div class="info-about-me">
+                                                <span>Nom</span>
+                                            </div>
+                                            <div class="value-about">
+                                                {{app.user.lastName}}
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="about-me-item">
+                                        <div class="about-me-content">
+                                            <div class="info-about-me">
+                                                <span>Prenom</span>
+                                            </div>
+                                            <div class="value-about">
+                                                {{app.user.firstName}}
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="about-me-item">
+                                        <div class="about-me-content">
+                                            <div class="info-about-me">
+                                                <span>Genre</span>
+                                            </div>
+                                            <div class="value-about">
+                                                {{profile and profile.gender ? profile.genderNameFr : '-'}}
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="about-me-item">
+                                        <div class="about-me-content">
+                                            <div class="info-about-me">
+                                                <span>Date de naissance</span>
+                                            </div>
+                                            <div class="value-about">
+                                                {{profile and profile.dateOfBirth ? profile.dateOfBirth | date("d-m-Y") : '-'}}
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="about-me-item">
+                                        <div class="about-me-content">
+                                            <div class="info-about-me">
+                                                <span>Localisation</span>
+                                            </div>
+                                            <div class="value-about">
+                                                {{profile and profile.location ? profile.location.nameFr : '-'}}
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="about-me-item">
+                                        <div class="about-me-content">
+                                            <div class="info-about-me">
+                                                <span>Profession</span>
+                                            </div>
+                                            <div class="value-about">
+                                                {{profile and profile.job ? profile.job : '-'}}
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="about-me-item">
+                                        <div class="about-me-content">
+                                            <div class="info-about-me">
+                                                <span>Date d'inscription</span>
+                                            </div>
+                                            <div class="value-about">
+                                                {{app.user.registrationDate | date("d-m-Y")}}
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="btn-modification text-center mt-5 mb-4">
+                            <button class="btn btn-primary" id="btnChangeProfil">
+                                Modifier mon profil
+                                <span class="ml-1"><i class="fas fa-pencil-alt"></i></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-9" id="editProfil">
+                        <form class="settingsForm" method="POST" id="updateProfilForm">
+                            <div class="apropo card border-gray mb-3">
+                                <div class="card-header">
+                                    <span class="title-card-header-pg">
+                                        A propos de moi
+                                    </span>
+                                </div>
+                                <div class="card-body py-3">
+                                    <div class="form-group row">
+                                        <div class="input-container col-md-6 col-sm-12 mb-2">
+                                            <input type="text" name="lName" id="lName" value="{{app.user.lastName}}">
+                                            <label for="lName">Nom <font color="red">*</font></label>
+                                            <div class="bar"></div>
+                                        </div>
+                                        <div class="input-container col-md-6 col-sm-12 mb-2">
+                                            <input type="text" name="fName" id="fName" value="{{app.user.firstName}}">
+                                            <label for="fName">Prénom <font color="red">*</font></label>
+                                            <div class="bar"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="input-container col-md-6 col-sm-12 mb-2">
+                                            <select type="text" name="gender" id="gender">
+                                                <option value=""></option>
+                                                <option value="M" {{profile and profile.gender == "M" ? "Selected"}} >Masculin</option>
+                                                <option value="F" {{profile and profile.gender == "F" ? "Selected"}} >Feminin</option>
+                                                <option value="A" {{profile and profile.gender == "A" ? "Selected"}}>Autre</option>
+                                            </select>
+                                            <label for="gender">Genre</label>
+                                            <div class="bar"></div>
+                                        </div>
+                                        <div class="input-container col-md-6 col-sm-12 mb-2">
+                                            <input type="date" value="{{profile and profile.dateOfBirth ? profile.dateOfBirth | date('Y-m-d') : ''}}" id="birthday">
+                                            <label for="birthday">Date de naissance</label>
+                                            <div class="bar"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="input-container col-md-6 col-sm-12 mb-2">
+                                            <select type="text" name="location" id="location">
+                                                <option value=""></option>
+                                                {% for country in countries %}
+                                                    <option value="{{country.alpha3}}" {{profile and profile.location == country ? "Selected"}} >{{country.nameFr}}</option>
+                                                {% endfor %}
+                                            </select>
+                                            <label for="location">Localisation</label>
+                                            <div class="bar"></div>
+                                        </div>
+                                        <div class="input-container col-md-6 col-sm-12 mb-2">
+                                            <input type="text" name="job" id="job" value="{{profile and profile.job ? profile.job : ''}}">
+                                            <label for="job">Profession</label>
+                                            <div class="bar"></div>
+                                        </div>
+                                    </div>
+                                    <div class="notification-checkbox text-left mt-3 mb-3">
+                                        <label class="toggle">
+                                            <input class="toggleInput" id="sahreProfile" name="sahreProfile"
+                                                type="checkbox" {{profile and profile.shareProfile ? "checked"}}>
+                                            <span class="toggleLabel">
+                                                <span class="notification__text">
+                                                    Partager l'integralité de mon profil à la communauté comores
+                                                    academie.
+                                                </span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="alert alert-danger mt-3">
+                                        <p>Attention: Dans le cas ou vous ne voulez pas partager l'integralité de
+                                            votre profil,
+                                            codemy vous informe que le nom, le prénom et la photo de
+                                            profile sont visible
+                                            par tous les utilisateurs
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="settingValidate text-center mt-5 mb-4">
+                                <button type="submit" class="btn btn-primary" name="changeProfile">Enregister les
+                                    modifications</button>
+                                <button type="button" class="btn btn-secondary" id="notChangeProfile">Annuler les
+                                    modifications</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+<script src="/js/profile.js"></script>
+{% endblock %}
