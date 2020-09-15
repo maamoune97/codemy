@@ -202,12 +202,12 @@
           </div>
           <div class="input-validate">
             <span class="labelInput">Adresse email</span>
-            <input class="inputArea" type="text" name="_username" id="username" placeholder="Entrez votre adresse email">
+            <input class="inputArea" type="text" name="_username" id="username" placeholder="Entrez votre adresse email" />
             <span class="inputIcone usernameInput"></span>
           </div>
           <div class="input-validate">
             <span class="labelInput">Mot de Passe</span>
-            <input class="inputArea" type="password" name="_password" id="password" placeholder="Entrez votre mot de passe">
+            <input class="inputArea" type="password" name="_password" id="password" placeholder="Entrez votre mot de passe" />
             <span class="inputIcone passwordInput"></span>
           </div>
           <div class="forgetText text-center">
@@ -238,49 +238,52 @@
     <div id="registerModal" class="registerOverlay">
       <div class="registerDiv">
         <span class="closeRegister">&times;</span>
-        <form class="registerForm" id="registerFormJS">
+        <form action="/" method="POST" class="registerForm" id="registerForm">
           <span class="registerForm__title">
             Inscription
           </span>
           <div class="input-validate">
             <span class="labelInput">Nom</span>
-            <input class="inputArea" type="text" name="last Name" placeholder="Entrez votre nom ">
+            <input class="inputArea" type="text" name="reg_l_name" id="reg_l_name" placeholder="Entrez votre nom ">
             <span class="inputIcone usernameInput"></span>
           </div>
-          <div class="alert alert-danger">
+          <div class="alert alert-danger reg_error">
             <p>Votre nom est invalide</p>
           </div>
           <div class="input-validate">
             <span class="labelInput">Prenom</span>
-            <input class="inputArea" type="text" name="First Named" placeholder="Entrez votre prenom">
+            <input class="inputArea" type="text" name="reg_f_name" id="reg_f_name" placeholder="Entrez votre prenom">
             <span class="inputIcone usernameInput"></span>
           </div>
-          <div class="alert alert-danger">
+          <div class="alert alert-danger reg_error">
             <p>Votre prenom est invalide</p>
           </div>
           <div class="input-validate">
             <span class="labelInput">Adresse e-mail</span>
-            <input class="inputArea" type="text" name="mail" placeholder="Entrez votre Adresse e-mail">
+            <input class="inputArea" type="text" name="reg_email" id="reg_email"
+              placeholder="Entrez votre Adresse e-mail">
             <span class="inputIcone mailInput"></span>
           </div>
-          <div class="alert alert-danger">
-            <p>L'adresse e-mail saisie n'est pas valide</p>
+          <div class="alert alert-danger reg_error">
+            <p>Votre adresse e-mail n'est pas valide</p>
           </div>
           <div class="input-validate">
             <span class="labelInput">Mot de Passe</span>
-            <input class="inputArea" type="password" name="password" placeholder="Entrez votre mot de passe">
+            <input class="inputArea" type="password" name="reg_pwd" id="reg_pwd"
+              placeholder="Entrez votre mot de passe">
             <span class="inputIcone passwordInput"></span>
           </div>
-          <div class="alert alert-danger">
-            <p>Votre mot de passe est invalide</p>
+          <div class="alert alert-danger reg_error">
+            <p>Mot de passe invalide</p>
           </div>
           <div class="input-validate">
             <span class="labelInput">Confirmez votre mot de passe</span>
-            <input class="inputArea" type="password" name="password Confirm" placeholder="Confimer votre mot de passe">
+            <input class="inputArea" type="password" name="reg_pwd2" id="reg_pwd2"
+              placeholder="Confimer votre mot de passe">
             <span class="inputIcone passwordInput"></span>
           </div>
-          <div class="alert alert-danger">
-            <p>Les mots de passe de correspond pas</p>
+          <div class="alert alert-danger reg_error">
+            <p>Les mots de passe ne correspondent pas</p>
           </div>
           <div class="registerCheck pt-3">
             <span>En acceptant de vous inscrire vous acceptez aussi les</span>

@@ -10,12 +10,21 @@ use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class AccountController extends AbstractController
 {
+    private $encoder;
+
+    public function __construct(UserPasswordEncoderInterface $encoder)
+    {
+        $this->encoder = $encoder;
+    }
 
     /**
      * Undocumented function
@@ -26,29 +35,45 @@ class AccountController extends AbstractController
      */
     public function register(EntityManagerInterface $manager, Request $request)
     {
-        $user = new User();
-        $form = $this->createForm(UserType::class, $user);
-        $form->handleRequest($request);
+        //get data from request
+        $postData = json_decode($request->getContent());
+        
+        if ($postData && filter_var($postData->email,FILTER_VALIDATE_EMAIL)) {
+            // extract data and transform it as a simple variables to simplify access 
+            //exemple: $postData->email become just $email
+            extract((array) $postData);
+            
+            $user = new User();
 
-        if ($_POST) {
-            return $this->json(['fullName' => $_POST['firstName']. ' '.$_POST['lastName']]);
-        }
-        if ($form->isSubmitted() && $form->isValid()) {
-            $user->setRegistrationDate(new DateTime());
-
+            $user->setFirstName(htmlspecialchars($firstName))
+                 ->setLastName(htmlspecialchars($lastName))
+                 ->setEmail($email)
+                 ->setPassword($this->encoder->encodePassword($user, $password))
+                 ->setRegistrationDate(new DateTime());
+            
             $manager->persist($user);
             $manager->flush();
 
-            return $this->json('success');
+            $this->authenticateUser($user);
+
+            return new Response('1');
+            
         }
+        return new Response('empty data', 500);
 
-        // dd($form->createView());
-        $postData = json_decode($request->getContent());
-        $fullName = $postData->firstName.' '.$postData->lastName;
-        return $this->json([
-            'failure', 'dataContent' => $fullName,
-        ]);
+    }
 
+    private function authenticateUser(User $user, ?string $providerKey = 'main')
+    {
+        $token = new UsernamePasswordToken(
+            $user,
+            $user->getPassword(),
+            $providerKey,
+            $user->getRoles()
+        );
+        
+        $this->get('security.token_storage')->setToken($token);
+        $this->get('session')->set('_security_main', serialize($token));
     }
 
        /**

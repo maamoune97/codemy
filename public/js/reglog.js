@@ -12,6 +12,7 @@ $(function () {
     $('#login_mob').click(function () {
       connexionModal.style.display = "block";
     });
+    
 
     $('.closeLogin').click(function () {
       connexionModal.style.display = "none";
@@ -45,35 +46,45 @@ $(function () {
 
   })();
 
-  // $('#con_pwd').keyup(function(){
-  // });
 
-  //Connexion user via ajax
-  (function () {
-    $('#login-submit').click(function() {
-      let username = $('#username').val();
-      let password = $('#password').val();
-      let data = JSON.stringify({username: username, password: password});
-      $.ajax({
-          url: '/login',
-          type: 'POST',
-          contentType: "application/json",
-          dataType: 'json',
-          data: data,
-          success: function (data, status) {
-              console.log("DATA", data);
-              window.location.reload();
-          },
-          error: function (XMLHttpRequest, textStatus, errorThrown) {
-            $('#con_error').fadeOut();
-            $('#con_error').fadeIn();
-            console.log(errorThrown);
-            console.log(textStatus);
-          }
-      });
-  });
+  
+  //Connect user by ajax
+  function checkLogin() {
+    let username = $('#username').val();
+    let password = $('#password').val();
+    let data = JSON.stringify({username: username, password: password});
+    $.ajax({
+        url: '/login',
+        type: 'POST',
+        contentType: "application/json",
+        dataType: 'json',
+        data: data,
+        success: function (data, status) {
+            console.log("DATA", data);
+            window.location.reload();
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+          $('#con_error').fadeOut();
+          $('#con_error').fadeIn();
+          console.log(errorThrown);
+          console.log(textStatus);
+        }
+    });
+}
 
-  })();
+// try connexion if login Form is submitted
+(function login() {
+  $('#login-submit').click(checkLogin);
+
+})();
+
+// try connexion if enter button of login Form is pressed on password or username input
+$('input#password,input#username').keypress(function (e) {
+  if (e.which == 13) {
+      checkLogin()
+  }
+});
+
 
   // Affiche le message d'erreur sur la div .reg_error de l'input concerné
   function showMsgError(input, msg) {
@@ -188,29 +199,18 @@ $(function () {
       // Inscription si validation ok
 
       if (validation === true) {
-        $.ajax({
-          url: '/assets/js/ajax/signUp.php',
-          type: 'POST',
-          data: {
-             'l_name': $('#reg_l_name').val(),
-             'f_name': $('#reg_f_name').val(),
-             'email': $('#reg_email').val(),
-             'pwd': $('#reg_pwd').val(),
-             'pwd2': $('#reg_pwd2').val(),
-          },
-          success: function (msg) {
-            // alert(msg);
-            if (msg == '1') {
-                window.location.reload();
-            } else if(msg == '1ae') {
-              showMsgError($('#reg_email'), 'Cet adresse email est déja utiliser');
-              return false;
-            }
-          },
-          error: function (XMLHttpRequest, textStatus, errorThrown) {
-            // alert(errorThrown);
-          }
-        });
+
+
+        axios.post('/register',{
+          lastName: $('#reg_l_name').val(),
+          firstName: $('#reg_f_name').val(),
+          email: $('#reg_email').val(),
+          password: $('#reg_pwd').val(),
+          })
+          .then(response => {
+            response.data == '1' ? window.location.reload() : console.log(response);
+          })
+          .catch(errors => console.log('erreur: '+errors))
       }
 
       return false;
